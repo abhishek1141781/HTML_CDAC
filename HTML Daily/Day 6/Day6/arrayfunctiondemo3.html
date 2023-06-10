@@ -1,0 +1,52 @@
+<html>
+    <body>
+        <script>
+            var arr=[12,13,14,5,6,7,2,100]
+            document.write(arr+"<br>")
+            var pos=arr.findIndex((a,index,ar)=>{
+                document.write("value: "+index+": "+a+"<br>");
+                return a%7==0})
+            document.write("Position :"+pos); 
+            /*
+            for(var ob of arr){
+                if(ob%7==0)
+                    return ob
+            }*/
+            var val=arr.find(a=>{
+                document.write("value: "+a+"<br>");
+                return a%7==0})
+            document.write("answer :"+val);
+            /*arr2=[]
+            for(var ob of arr){
+                if(ob%7==0)
+                    arr2.push(ob*ob)
+            }*/
+            var arr1=arr.filter(a=>{
+                document.write("value: "+a+"<br>");
+                return a%7==0})
+            document.write("all values : "+ arr1);
+            /*arr2=[]
+            for(var ob of arr){
+               arr2.push(ob*ob)
+            }*/
+            var arr2=arr.map(a=>a*a);
+
+            //reduce all the values of the array to its sum
+            var ans=arr.reduce((acc,val)=>acc+val);
+            document.write("addition : "+ans+"<br>")
+            //reduce all the values of the array to its maximum vale
+            var ans=arr.reduce((acc,val)=>acc>val?acc:val);
+            document.write("Maximum : "+ans+"<br>")
+            arr2=["Python","Perl","java","OS","linux"]
+            //find a string formed by concatinating all the 
+            //values from the array arr2
+            ans=arr2.reduce((acc,v)=>acc+v);
+            document.write("concat all strings : "+ans+"<br>")
+            ////find a string formed by concatinating 1st 3 characters of all the 
+            //values from the array arr2  o/p PytPerjavoslin
+            var ans= arr2.reduce((acc,v)=>acc+v.slice(0,3),"")
+            document.write("concate 1st 3 characters : "+ans+"<br>")
+           
+        </script>
+    </body>
+</html>

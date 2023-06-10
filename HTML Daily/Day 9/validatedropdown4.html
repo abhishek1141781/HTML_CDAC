@@ -1,0 +1,80 @@
+<html>
+    <head>
+       <script src="../jquery.js"></script>
+       <script>
+           var singernames;
+            var city;  
+           $(document).ready(function(){
+            
+            var validatesname=function(){
+                //initialize the array to empty array
+                singernames=[]
+                //add the values of selected checkboxes in the array
+                $('input[name=sname]:checked').each(function(){
+                      singernames.push($(this).val());
+                });
+                //check whether 2 checkboxes are selecetd or not
+                //if not display message
+                if(singernames.length<2){
+                    $('#errsname').html("pls select minimum 2 singers")
+                    return false
+                }
+                $('#errsname').html("")
+                    return true
+
+                  
+            }
+             function validatecity(){
+                //retrieve the value of selected city
+               city= $('#city option:selected').val();
+               // to check it is not the first one, if yes display error message
+               if(city==="test"){
+                  $('#errcity').html("pls select the city");
+                  return false;
+                }
+                //clear the message
+                $('#errcity').html("");
+                  return true;
+             }
+               
+                $('#btn').click(function(){
+                    //validate singer names
+                    var flag=validatesname();
+                    //validate city
+                    var flag1=validatecity()
+                    //if the data is valid then display it in div tag
+                    if(flag && flag1){
+                        var str=`city: ${city} <br> singer names : ${singernames}`
+                        $('#mydiv').html(str);
+                    }
+                })
+
+           })
+       </script>
+    </head>
+    <body>
+        singer names:
+        <input type="checkbox" name="sname" id="sonu" value="sonu">
+        <label>Sonu nigam</label>
+        <input type="checkbox" name="sname" id="Shreya" value="Shreya">
+        <label>Shreya </label>
+        <input type="checkbox" name="sname" id="Shan" value="Shan">
+        <label>Shan</label>
+        <input type="checkbox" name="sname" id="Ajay" value="Ajay">
+        <label>Ajay</label>
+        <input type="checkbox" name="sname" id="Atul" value="Atul">
+        <label>Atul</label> &nbsp;&nbsp;<span id="errsname"></span><br>
+        cities: <select name="city" id="city">
+            <option value="test">----select one---</option>
+              <option value="pune">Pune</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Nashik">Nashik</option>
+              <option value="Kolhapur">Kolhapur</option>
+        </select>&nbsp;&nbsp; <span id="errcity"></span><br>
+        <button type="button" name="btn" value="btn" id="btn">show data</button>
+        <div id="mydiv">
+
+        </div>
+        
+    </body>
+</html>

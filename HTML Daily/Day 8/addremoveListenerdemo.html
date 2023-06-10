@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script>
+            var cnt=2;
+            function addnewtextbox(){
+                var inp=document.createElement("input")  //<input/>
+                inp.setAttribute("type","text"); //<input type="text"/>
+                inp.setAttribute("name","nm"+cnt);//<input type="text" name="nm1"/ >
+                inp.setAttribute("id","nm"+cnt);  //<input type="text" name="nm1" id="nm1"/>
+                var br=document.createElement("br") 
+                document.getElementById("mydiv").appendChild(inp);
+                document.getElementById("mydiv").appendChild(br)
+                cnt++;
+
+            }
+            function displayCities(){
+                var btn=document.getElementById("addnew");
+                btn.removeEventListener("click",addnewtextbox)
+                arr=[];
+
+                for(var i=1;i<cnt;i++){
+                    var txt=document.getElementById("nm"+i).value
+                    arr.push(txt);
+                }
+                document.getElementById("displayDiv").innerHTML+="<br>cities selcted: "+arr;
+            }
+          function assignEvent(){
+            var btn=document.getElementById("addnew");
+            //assign myfunction as a event listener to 
+            //click event of the button
+            btn.addEventListener("click",addnewtextbox);
+        }
+        </script>
+        
+    </head>
+    <body onload="assignEvent()">
+        <div id="mydiv">
+            <input type="text" name="nm" id="nm1">
+            <button type="button" name="btn" id="addnew" value="addnew">Add new Textbox</button>
+            <button type="button" name="btn" id="display" value="display" onclick="displayCities()">display cities</button><br>
+      </div>
+      <div id="displayDiv"></div>
+    </body>
+</html>

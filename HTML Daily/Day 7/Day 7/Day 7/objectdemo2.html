@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <script>
+            //constructor function
+            var Person=function(id,nm,address){
+                this.id=id;
+                this.name=nm;
+                this.addr=address;
+                this.display=function(){
+                    document.write(`pid : ${this.pid} pname: ${this.pname} address: ${this.address}`)
+                }
+            }
+            var Manager=function(mnm,mid){
+                this.mname=mnm;
+                this.mid=mid;
+            }
+            p1=new Person(12,'kishori','baner');
+            p2=new Person(13,'Rajan','baner');
+            m1=new Manager("Anil",1234);
+            // manager extends person
+            m1.__proto__=p1;
+            document.write("<hr>")
+            for(var p in m1){
+                //it will return true if p is its own property, false if it is
+                //inherited property
+                if(m1.hasOwnProperty(p)){
+                  document.write(`Own propery: ${p}-----${m1[p]}<br>`)
+                }else{
+                    document.write(`parent propery: ${p}-----${m1[p]}<br>`)
+                }
+            }
+            // document.write("<hr>")
+            // p1.display();
+            // p2.display();
+            p1.mobile=23455;
+            console.log(p1,p2);
+        </script>
+    </body>
+</html>

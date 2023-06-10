@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script>
+            prodarr=[{pid:11,pname:'chair',qty:34,price:1000},{pid:12,pname:'table',qty:50,price:2345},{pid:12,pname:'table',qty:40,price:1500},{pid:12,pname:'table',qty:55,price:4444}]
+            function displayTable(arr=prodarr){
+                var str='<table><tr><th>pid</th><th>panme</th><th>qty</th><th>price</th></tr>'
+                    for(var ob of arr){
+                        str+=`<tr><td>${ob.pid}</td><td>${ob.pname}</td><td>${ob.qty}</td><td>${ob.price}</td></tr>`
+                    }
+                str+="</table>";
+                document.getElementById("myid").innerHTML=str;
+            }
+            function searchdata(event){
+                if(event.target.id==="btn" || event.which===13){
+                    var pr=document.getElementById("pr").value;
+                    var qty=document.getElementById("qty").value;
+                    if(pr==="" && qty===""){
+                        //alert("1");
+                        arr=[...prodarr]
+                    }else if (pr===""){
+                        //alert("2");
+                       var arr=prodarr.filter(a=>a.qty>qty)
+                    }else if(qty===""){
+                        //alert("3");
+                        var arr=prodarr.filter(a=>a.price<pr)
+                    }else if(pr!=="" && qty!==""){
+                        //alert("4");
+                        var arr=prodarr.filter(a=>a.qty>qty || a.price<pr)
+
+                    }
+                    displayTable(arr);
+                }
+            }
+        </script>
+    </head>
+
+    <body onload="displayTable()">
+       price : <input type="text" name="pr" id="pr" onkeypress="searchdata(event)">
+       qty: <input type="text" name="qty" id="qty" onkeypress="searchdata(event)">
+       <button type="submit" name="btn" value="btn" id="btn" onclick="searchdata(event)">search</button>
+       <div id="myid">
+
+       </div>
+    </body>
+</html>

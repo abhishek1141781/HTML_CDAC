@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <script>
+            var a=12;
+            var name="dsjdkjh";
+            var per={
+                pid:1234,
+                pname:"kishori", 
+                address:"baner",
+                display:function(){
+                    document.write(`pid : ${this.pid} pname: ${this.pname} address: ${this.address}`) 
+                    // document.write("pid :"+ this.pid+" pname:"+ this.pname+" address: "+this.address)
+                }}
+                per.mobile=34567;
+                //to retrieve indivitual properties of objects 
+                //you may use . operator or [] operator
+                //alert(`${per.pid}----${per.pname}----${per.address}`);
+                //alert(`${per["pid"]}----${per["pname"]}----${per["address"]}`);
+
+                //object for loop to retrieve properties and value 
+                //from the object
+
+                for(var p in per){
+                    if(typeof(per[p])!=="function"){
+                    document.write(`${p}-------${per[p]} ${typeof(per[p])}<br>`)
+                   }
+                }
+                per.display();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script src="./js/practiceCalculateResult.js"></script>
+
+    </head>
+    <body>
+        <form action="">
+            Number 1 : <input type="text" name="num1" id="num1"><br>
+            Number 2 : <input type="text" name="num2" id="num2"><br>
+            Result : <input type="text" name="result" id="result" readonly><br>
+
+            <input type="radio" name="operation" id="add" value="add">
+            <label for="add">Addition</label>
+
+            <input type="radio" name="operation" id="sub" value="sub">
+            <label for="sub">Subtraction</label>
+            
+            <input type="radio" name="operation" id="mult" value="mult">
+            <label for="mult">Multiplication</label><br>
+
+            <!-- <input type="submit" name="result" id="result" value="validateData()"> ===> using button to keep data--> 
+            <button type="button" name="button" id="button" value="button" onclick="practiceCalculateResult()">Calculte Result</button>
+            <!-- <input type="button" name="result" id="result" onclick="calculateresult()"> -->
+
+        </form>
+    </body>
+</html>

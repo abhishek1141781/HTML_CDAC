@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function maxOfThree(){
+            // getting value from the three text boxes
+            var n1=parseInt(document.getElementById("num1").value)
+            var n2=parseInt(document.getElementById("num2").value)
+            var n3=parseInt(document.getElementById("num3").value)
+            // alert(n1)
+            // alert(n2)
+            // alert(n3)
+
+            var max=n1>=n2?(n1>=n3?n1:n3):n2>=n3?n2:n3
+            // alert(max)
+
+            document.getElementById("result").value=max;
+            document.getElementById("dispDivID").innerHTML=max;
+        }
+
+    </script>
+    
+</head>
+<body>
+    <h1>Largest of three numbers inputed</h1>
+
+    <table>
+        <tr>
+            <td>
+                Num1:<input type="text" name="num1" id="num1">
+            </td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>
+                Num2:<input type="text" name="num2" id="num2">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Num3:<input type="text" name="num3" id="num3">
+            </td>
+        </tr>
+        
+        <tr>
+            <!-- <td></td> -->
+            <td>
+                <button name="max3" id="max3" onclick="maxOfThree()">Max of three</button>
+                <!-- Num3:<input type="button" name="num3" id="num3"> -->
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                Max of three Numbers:<input type="text" name="result" id="result">
+            </td>
+        </tr>
+    </table>
+
+    <!-- display in a div below using innerHTMAL -->
+    <div class="dispDiv" id="dispDivID" style="background-color: brown; color: white; width: 150px;">Max of three here</div>    
+
+
+
+
+    
+</body>
+</html>

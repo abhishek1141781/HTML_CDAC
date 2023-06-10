@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <script>
+        // no arguments provided still working
+        function power(){
+            var x=document.getElementById("x").value
+            var y=document.getElementById("y").value
+            var result=1
+
+            for(var i=0;i<y;i++){
+                result *= x
+            }
+            // return result
+            document.getElementById("mydiv").innerHTML=result
+        }
+        
+
+    </script>
+</head>
+<body>
+    <h3>Write a function pow(x,y) that calculates x y . Do not use the Math predefined objet</h3>
+
+    Put x: <input type="text" name="" id="x"><br><br>
+    Put y: <input type="text" name="" id="y"><br><br>
+
+    <button id="btn" onclick="power()">Calculate x raised to y</button>
+
+    <br><br>
+    <div id="mydiv"></div>
+</body>
+</html>

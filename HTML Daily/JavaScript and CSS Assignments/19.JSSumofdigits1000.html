@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // The error "TypeError: sumOfDigits is not a function" occurs when you try to call a function that is not defined or not in scope. So we don't need to load the whole dom before going through this function.
+        // document.addEventListener("DOMContentLoaded",function(){
+
+            function sumOfDigits(){
+                var num=document.getElementById("num").value
+                var flag=isNaN(num)
+                // alert("1")
+                // alert(flag)
+                
+                if(num>1000 || num<0){
+                    document.getElementById("err").innerHTML="Entered number is out of range"
+                    document.getElementById("mydiv").innerHTML=""
+                }else{
+                    var sum=0
+                    var rem = num%10
+                    sum+=rem
+                    num=Math.ceil(num/10)
+                    
+                    document.getElementById("mydiv").innerHTML="Sum of Digits: "+sum
+                    document.getElementById("err").innerHTML=""
+                }
+            }
+        // })
+    </script>
+</head>
+<body>
+
+    <!-- <form action=""> -->
+        Enter a +ve value less than 1000: <input type="text" name="num" id="num">&nbsp<span id="err"></span><br><br>
+        <button id="sumOfDigits" type="button" onclick="sumOfDigits()">Sum of Digits</button>
+
+
+    </form>
+    <div id="mydiv"></div>
+    
+</body>
+</html>
+

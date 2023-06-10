@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+
+            teamArr=["Saka","Messi","Odegaard","Trossard","Kane"]
+            // alert(teamArr)
+            for(var ob of teamArr){
+                // alert(ob)
+                document.getElementById("list").innerHTML+="<li>"+ob+"</li>"
+            }
+        })
+    </script>
+</head>
+<body>
+    <h3>Members of my group are</h3>
+        <ol id="list">
+
+        </ol>
+
+    <div id="mydiv"></div>
+</body>
+</html>

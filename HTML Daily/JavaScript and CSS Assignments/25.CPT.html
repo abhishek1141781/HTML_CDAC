@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        var flag1 = false, flag2 = false;
+        var orderArr = [];
+
+        function displayDetails() {
+            var orderId = document.getElementById("oid").value;
+            var custName = document.getElementById("custname").value;
+            var billDate = document.getElementById("billdate").value;
+            var shipDate = document.getElementById("shipdate").value;
+            var orderTotal = document.getElementById("ordertotal").value;
+
+            validateDetails(custName, billDate, shipDate);
+
+            var orderObj = { orderId, custName, billDate, shipDate, orderTotal };
+            orderArr.push(orderObj);
+
+            showDetails(orderArr);
+        }
+
+        function validateDetails(custName, billDate, shipDate) {
+            if (custName.length < 6) {
+                document.getElementById("custErr").innerHTML = "Cust name can't be less than 6 characters";
+            } else {
+                document.getElementById("custErr").innerHTML = "";
+                flag1 = true;
+            }
+
+            if (billDate > shipDate) {
+                document.getElementById("billErr").innerHTML = "Billing date can't be greater than shipping date";
+            } else {
+                document.getElementById("billErr").innerHTML = "";
+                flag2 = true;
+            }
+        }
+
+        function showDetails(orderArr) {
+            var str = "<table>";
+            str += "<tr><th>Order ID</th><th>Customer Name</th><th>Billing Date</th><th>Shipping Date</th><th>Order Total</th></tr>";
+            for (var i = 0; i < orderArr.length; i++) {
+                var order = orderArr[i];
+                str += `<tr><td>${order.orderId}</td><td>${order.custName}</td><td>${order.billDate}</td><td>${order.shipDate}</td><td>${order.orderTotal}</td></tr>`;
+            }
+            str += "</table>";
+
+            // Open a new window with the HTML content
+            var newWindow = window.open();
+            newWindow.document.write(str);
+        }
+    </script>
+</head>
+<body>
+    <h1>Chat GPT</h1>
+    <form>
+        Order ID: <input type="text" name="oid" id="oid" required><span id="oidErr"></span><br>
+        Customer name: <input type="text" name="custname" id="custname" required><span id="custErr"></span><br>
+        Enter Billing Date: <input type="date" name="billdate" id="billdate" required><span id="billErr"></span><br>
+        Enter Shipping Date: <input type="date" name="shipdate" id="shipdate" required><span id="shipErr"></span><br>
+        Order Total: <input type="text" name="ordertotal" id="ordertotal" required><span id="totalErr"></span><br><br>
+        <button type="button" id="display" onclick="displayDetails()">Display Details</button>
+    </form>
+</body>
+</html>

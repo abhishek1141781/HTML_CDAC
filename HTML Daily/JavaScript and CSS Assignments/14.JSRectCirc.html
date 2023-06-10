@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // we're defining a rectangle object below by directly defining it's constructor
+
+//         In JavaScript, objects can be created on the fly without first defining a class or a constructor function. In the code you provided, the Rectangle function is serving as a constructor function, which can be used to create new objects with the new keyword.
+
+// When you call new Rectangle(5, 10), for example, JavaScript creates a new object with the length and width properties set to 5 and 10, respectively. The area and perimeter methods are also created as properties of this new object.
+
+// This is a common pattern in JavaScript known as "constructor functions". The new keyword is used to create a new instance of the constructor function, which is essentially a new object with the specified properties and methods. The this keyword is used to refer to the new object being created, and the properties and methods are added to it using dot notation.
+
+// So while you're not creating a class in the traditional sense, you're still defining a function that can be used to create objects with the same properties and methods.
+
+// In JavaScript, objects can be created on the fly without first defining a class or a constructor function. In the code you provided, the Rectangle function is serving as a constructor function, which can be used to create new objects with the new keyword.
+
+// how is this possible write some where this is possible
+
+// ChatGPT
+// Yes, it is possible to create objects in JavaScript without first defining a class or constructor function. This is done by using object literal notation, where you define an object's properties and methods using curly braces {}.
+
+
+// -----------------------------------------------------------------------------------------------------------
+// javascript
+// Copy code
+// const person = {
+//   name: 'John',
+//   age: 30,
+//   greet: function() {
+//     console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+//   }
+// };
+// -----------------------------------------------------------------------------------------------------------
+
+// In this example, person is an object that has properties name and age, as well as a method greet(). You can access these properties and methods using dot notation, like this:
+
+// scss
+// Copy code
+// console.log(person.name); // Output: John
+// console.log(person.age); // Output: 30
+// person.greet(); // Output: Hello, my name is John and I'm 30 years old.
+// -----------------------------------------------------------------------------------------------------------
+// Object literal notation is a quick and easy way to create objects with simple properties and methods. However, if you need to create multiple objects with the same properties and methods, it's often better to define a constructor function that can be used to create new objects with the same structure.
+// -----------------------------------------------------------------------------------------------------------
+
+        // this is the definition of the Rectangle constructor function with parameters for length and width of the Rectangle. Here an object is created on the fly without defining a class.
+        // Here an object is created while i've defined a constructor function, but an object can also be created directly without defining a constructor
+        // $(document).ready(function(){
+        document.addEventListener("DOMContentLoaded",function(){
+
+            function Rectangle(length,width){
+            // alert("inside Rectangle obj")
+            this.length=length;
+            this.width=width;
+            
+            // caught TypeError: rect1.area is not a function
+            // area = function() this doesn't work
+            // this.area = function(){ => this is needed to define area as a property of the rectangle object
+            this.area = function(){
+                return this.length*this.width;
+            }
+            this.perimeter = function(){
+                return 2*(this.length+this.width)
+            }
+        }
+
+        function Circle(radius){
+            this.radius=radius;
+            this.area = function(){
+                return Math.PI*this.radius*this.radius;
+            }
+            this.circumference = function(){
+                return 2*Math.PI*this.radius
+            }
+        }
+
+        var rect1 = new Rectangle(2,4)
+        var rect2 = new Rectangle(20,40)
+        var circ1 = new Circle(2)
+        var circ2 = new Circle(40)
+        // var nl = document.getElementById(br).value
+
+        // caught TypeError: Cannot set properties of null (setting 'innerHTML')
+        // The script is being executed before the HTML has finished loading, so the element doesn't exist yet. To fix this, make sure your script is placed at the end of the body tag or wrap your code in a DOMContentLoaded event listener
+        document.getElementById("mydiv").innerHTML="Dimensions of rect1: "+"Length=> "+rect1.length+" Width=> "+rect1.width+" Rectangle area=> "+rect1.area()+" Rectangle perimeter=>"+rect1.perimeter()
+        document.getElementById("mydiv").innerHTML+="<br>Dimensions of rect2: "+"Length=> "+rect2.length+" Width=> "+rect2.width+" Rectangle area=> "+rect2.area()+" Rectangle perimeter=>"+rect2.perimeter()
+
+        document.getElementById("mydiv").innerHTML+="<br><br>Dimensions of circ1: "+"Radius=> "+circ1.radius+" Circle area=> "+circ1.area()+" Circle perimeter=>"+circ1.circumference()
+        document.getElementById("mydiv").innerHTML+="<br>Dimensions of circ2: "+"Radius=> "+circ2.radius+" Circle area=> "+circ2.area()+" Circle perimeter=>"+circ2.circumference()
+        })
+        
+
+    </script>
+</head>
+<body>
+    <p>Create a custom object for rectangle and circle. Individual Rectangle objects should be able to store
+        dimension, and have methods to print area and perimeter. Individual Circle objects should be able to
+        store radius, and have methods to print area and circumference. Display dimensions, area and perimeter
+        of rectangle and circle objects. Make use of pre-defined objects</p>
+    <div id="mydiv">as</div>
+</body>
+</html>

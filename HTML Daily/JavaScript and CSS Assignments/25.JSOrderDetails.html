@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+        var flag1=false,flag2=false
+        orderArr=[]
+        function displayDetails(){
+            var orderId=document.getElementById("oid").value
+            var custName=document.getElementById("custname").value
+            var billDate=document.getElementById("billdate").value
+            var shipDate=document.getElementById("shipdate").value
+            var orderTotal=document.getElementById("ordertotal").value
+
+            var orderObj={orderId,custName,billDate,shipDate,orderTotal}
+            orderArr.push(orderObj)            
+
+            validateDetails(custName,billDate,shipDate)
+
+            showDetails(orderArr)
+
+        }
+
+        function validateDetails(custName,billDate,shipDate){
+            if(custName.length<6){
+                document.getElementById("custErr").innerHTML="Cust name can't be less than 6 characters"
+            }else{
+                document.getElementById("custErr").innerHTML=""
+                return flag1=true
+            }
+
+            if(billDate>shipDate){
+                document.getElementById("billErr").innerHTML="Billing date can't be greater than shipping date"
+            }else{
+                document.getElementById("billErr").innerHTML=""
+                return flag2=true
+            }
+        }
+
+        function showDetails(orderArr){
+            var str="<table border='2'>"
+            str+="<tr><th>Order ID</th><th>Customer Name</th><th>Billing Date</th><th>Shipping Date</th><th>Order Total</th></tr>"
+            for(var ob of orderArr){    
+                str+=`<tr><td>${ob.orderId}</td><td>${ob.custName}</td><td>${ob.billDate}</td><td>${ob.shipDate}</td><td>${ob.orderTotal}</td></tr>`
+            }
+            str+="</table>"
+
+            var newWindow=window.open()
+            newWindow.document.write(str)
+        }
+
+
+
+
+    </script>
+    </head>
+    <body>
+        <h1>Abhishek</h1>
+        Order ID: <input type="text" name="oid" id="oid" required><span
+            id="oidErr"></span><br>
+
+        Customer name: <input type="text" name="custname" id="custname"
+            required><span id="custErr"></span><br>
+
+        Enter Billing Date: <input type="date" name="billdate" id="billdate"
+            required><span id="billErr"></span><br>
+
+        Enter Shipping Date: <input type="date" name="shipdate" id="shipdate"
+            required><span id="shipErr"></span><br>
+
+        Order Total: <input type="text" name="ordertotal" id="ordertotal"
+            required><span id="totalErr"></span><br><br>
+
+        <button id="display" onclick="displayDetails()">Display Details</button>
+        <div id="mydiv"></div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ================================================== -->
+
+<!-- function showDetails(orderArr) {
+var str = "<table>";
+    str += "<tr><th>Order ID</th><th>Customer Name</th><th>Billing Date</th><th>Shipping
+            Date</th><th>Order Total</th></tr>";
+    for (var ob of orderArr) {
+    str += `<tr><td>${ob.orderId}</td><td>${ob.custName}</td><td>${ob.billDate}</td><td>${ob.shipDate}</td><td>${ob.orderTotal}</td></tr>`;
+    }
+    str += "</table>";
+
+var newWindow = window.open('', '', 'width=800,height=600');
+newWindow.document.write('<html><head><title>Order Details</title>');
+        newWindow.document.write('<link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">');
+        newWindow.document.write('<style>table {border-collapse: collapse;width: 100%;} th, td {border: 1px solid #ddd;text-align: left;padding: 8px;} th {background-color: #f2f2f2;}</style>');
+        newWindow.document.write('</head><body>');
+        newWindow.document.write(str);
+        newWindow.document.write('</body></html>');
+
+newWindow.print();
+} -->

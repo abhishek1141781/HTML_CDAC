@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <script src="../jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                acnt=1;
+                pcnt=1
+                $('#prepend').click(function(){
+                    //createing a copy of paragraph
+                    var para=$('#myp').clone();
+                    //$(para).attr("id","pr"+pcnt)
+                    //change the id and class attribute of the paragraph
+                    $(para).attr({"id":"pr"+pcnt,"class":"pr"})
+                    pcnt++;
+                    //add the para before first child
+                    $('#mydiv').prepend(para);
+                    $('$mydiv').prepend('<input type="text">')
+                    //try prependTo
+
+                })
+
+                $('#Append').click(function(){
+                     //createing a copy of paragraph
+                    var para=$('#myp').clone();
+                    //$(para).attr("id","pr"+pcnt)
+                    //change the id and class attribute of the paragraph
+                    $(para).attr({"id":"pr"+acnt,"class":"app"})
+                    $(para).html($(para).html()+"para")
+                    acnt++;
+                    //add the para before first child
+                    $('#mydiv').append(para); 
+                    //try appendTo
+                    
+                })
+                $('#remapp').click(function(){
+                    $('p').remove('.app')
+                    
+                })
+                $('#rempre').click(function(){
+                    $('p').remove('.pr')
+                })
+
+            })
+        </script>
+    </head>
+    <body>
+        <div id="mydiv">
+
+            <p name="para" id="myp">This is para</p>
+            <button type="button" name="btn" id="prepend" value="prepend">Prepend para</button>
+            <button type="button" name="btn" id="Append" value="append">Append para</button>
+            <button type="button" name="btn" id="rempre" value="rempre">Remove Prepend para</button>
+            <button type="button" name="btn" id="remapp" value="remapp">Remove Append para</button>
+        </div>
+    </body>
+</html>

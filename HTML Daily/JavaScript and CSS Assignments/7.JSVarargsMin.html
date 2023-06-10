@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function min(){
+
+            var arr=[]
+            var str=prompt()
+            arr=str.split(",")
+
+            var minno=arr.reduce((acc,val)=>acc<val?acc:val)
+
+            document.getElementById("mydiv").innerHTML=minno
+        }
+
+    </script>
+</head>
+<body>
+    <h3>Write a program min() that takes any number of arguments and returns minimum number in the set of
+        arguments. Do not use the Math predefined objet</h3>
+
+        <button id="btn" onclick="min()">Begin the show. Take unlimited arguments. Give values separated by ,</button>
+
+        <br>
+        <div id="mydiv"></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function calulator(){
+            var n1=parseInt(document.getElementById("num1").value)
+            var n2=parseInt(document.getElementById("num2").value)
+
+            var op=document.getElementById("op").value
+            var result
+
+
+
+            switch (op) {
+                case '+':
+                    result = n1 + n2
+                    break;
+                    
+                case '-':
+                    result = n1 - n2
+                    break;
+
+                case '*':
+                    result = n1 * n2 
+                    break;
+
+                case '/':
+                    result = n1 / n2
+                    break;
+                    
+                default:
+                    break;
+            }
+
+            document.getElementById("mydiv").innerHTML="Result: "+result
+        }
+    </script>
+</head>
+<body>
+    <h3>Write a function that accepts two numbers and a operator like (+,-,*, /) from user and performs the appropriate operation indicated by the operator.</h3>
+
+    Num1: <input type="text" id="num1"><br><br>
+    Num2: <input type="text" id="num2"><br><br>
+
+    Input Operator: <input type="text" id="op" style="background-color: aqua;"><br><br>
+
+    <button id="calc" onclick="calulator()">Calculate</button>
+    <div id="mydiv"></div>
+</body>
+</html>

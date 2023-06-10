@@ -1,0 +1,174 @@
+<!-- hjddsd5 test case 
+        hjddsd
+        hjddsd5
+        455ds
+        ddd
+    Username should be between 6 to 10 charactersDon't enter numbers in username
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        var flag1=false,flag2=false
+        function login(event){
+            event.preventDefault()
+            var uname=document.getElementById("uname").value
+            var pass=document.getElementById("pass").value
+
+            validateData(uname,pass)
+            if(flag1&&flag2){
+                document.getElementById("mydiv").innerHTML = "Form submitted successfully!"            
+            }else{
+                document.getElementById("mydiv").innerHTML="Hiiiii"
+                return false
+            }
+        }
+
+        function validateData(uname,pass){
+            if(uname.length<6 || uname.length>10){
+                document.getElementById("unameErr").innerHTML="Username should be between 6 to 10 characters"
+            }
+            else if(/\d/.test(uname)){
+                // document.getElementById("unameErr").innerHTML=""
+                document.getElementById("unameErr").innerHTML+="Don't enter numbers in username"
+            }else{
+                document.getElementById("unameErr").innerHTML=""
+                flag1=true
+            }
+
+            // const regexHash = /#/
+
+            if(pass.length<9){
+                document.getElementById("passErr").innerHTML="Password should be greater than 8 charaters"
+            }else if(!(/#/.test(pass))){
+                document.getElementById("passErr").innerHTML="Enter # in password"
+            }else if(!(/\d/.test(pass))){
+                document.getElementById("passErr").innerHTML="Enter at least one number in password"
+            }else{
+                document.getElementById("passErr").innerHTML=""
+                flag2=true
+            }
+            // const hasNumber = /\d/.test(uname)
+        }
+
+
+    </script>
+</head>
+<body>
+    <form action="">
+        <table>
+            <th colspan="2">Abhishek Login Form</th>
+            <tr>
+                <td>Username: </td><td><input type="text" name="uname" id="uname" required></td><td id="unameErr"></td>
+            </tr>
+            <tr>
+                <td>Password: </td><td><input type="password" name="pass" id="pass" required></td><td id="passErr"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" onclick="login(event)">Login</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+    <div id="mydiv"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!-- =====================================================================
+=====================================================================
+=====================================================================
+=====================================================================
+=====================================================================
+=====================================================================
+===================================================================== -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        var flag1, flag2 = false;
+        function login(event){
+            event.preventDefault(); // prevent form submission by default
+            var uname = document.getElementById("uname").value;
+            var pass = document.getElementById("pass").value;
+            validateData(uname, pass);
+            if (flag1 && flag2) {
+                document.getElementById("mydiv").innerHTML = "Form submitted successfully!";
+            }
+        }
+        function validateData(uname, pass){
+            if (uname.length < 6 || uname.length > 10){
+                document.getElementById("unameErr").innerHTML = "Username should be between 6 to 10 characters";
+            }
+            else if (/\d/.test(uname)){
+                document.getElementById("unameErr").innerHTML = "Don't enter numbers in username";
+            } else {
+                document.getElementById("unameErr").innerHTML = "";
+                flag1 = true;
+            }
+            if (pass.length < 9){
+                document.getElementById("passErr").innerHTML = "Password should be greater than 8 characters";
+            } else if (!(/#/.test(pass))){
+                document.getElementById("passErr").innerHTML = "Enter # in password";
+            } else if (!(/\d/.test(pass))){
+                document.getElementById("passErr").innerHTML = "Enter at least one number in password";
+            } else {
+                document.getElementById("passErr").innerHTML = "";
+                flag2 = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <table>
+            <th colspan="2">Chat GPT Login Form</th>
+            <tr>
+                <td>Username: </td><td><input type="text" name="uname" id="uname" required></td><td id="unameErr"></td>
+            </tr>
+            <tr>
+                <td>Password: </td><td><input type="password" name="pass" id="pass" required></td><td id="passErr"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" onclick="login(event)">Login</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div id="mydiv"></div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+<!-- =============================ShowPassword=========================
+=============================Checkbox=============================
+==================================================================
+==================================================================
+==================================================================
+==================================================================
+================================================================== -->
+
+
+

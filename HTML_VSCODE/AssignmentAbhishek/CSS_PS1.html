@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cssDiv{
+            background-color: black;
+            color: whitesmoke;
+            padding: 5px;
+        }
+        .legend{
+            background-color: blue;
+            color: whitesmoke;
+            border-radius: 5px;
+            padding: 2px;
+        }
+        .nameAddFieldset1{
+            border-color: blue;
+            border-radius: 10px;
+            padding-block: 3%;
+        }
+        .nameAddFieldset2{
+            border-color: blue;
+            border-radius: 10px;
+            width: 60%;
+            /* padding: 10%; */
+            padding-inline: 6%;
+            padding-block: 3%;
+        }
+        .ssnInfo{
+            background-color: blue;
+            color: whitesmoke;
+            border-radius: 5px;
+            /* padding: 2px; */
+            padding-inline: 10px;
+        }
+        .nameAddTable{
+            border-spacing: 5px;
+        }
+        table td{
+            border-spacing: 2px;
+        }
+        .register{
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+        }
+        .lastTable{
+            /* border: 2px solid red; */
+
+            /* width: 300px; */
+            width: 50%;
+            /* float : left; */
+            margin-block: 2%;
+        }
+        .lastTable tr{
+            /* width: 300px; */
+            width: 50%;
+        }
+        .lastTable td{
+            /* align-items: center; */
+            align-items: normal;
+            text-align: center;
+        }
+        table input{
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="cssDiv">
+        <form action=""></form>
+            <fieldset class="nameAddFieldset1">
+                <legend class="legend">Name and address</legend>
+                
+                    <table class="nameAddTable">
+                        <tr>
+                            <td>SSN:</td>
+                            <td>
+                                <input type="text" name="ssn" id="ssn" size="10">
+                            </td>
+                            <td class="ssnInfo">
+                                Fill in name and address
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Full name:</td>
+                            <td><input type="text" name="ssn" id="ssn" size="10"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Street and number:</td>
+                            <td><input type="text" name="ssn" id="ssn" size="10"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Postal Code:</td>
+                            <td><input type="text" name="ssn" id="ssn" size="10"></td>
+                        </tr>
+
+                        <tr>
+                            <td>City:</td>
+                            <td><input type="text" name="ssn" id="ssn" size="10"></td>
+                        </tr>
+                    </table>  
+            </fieldset><br>
+
+            <fieldset class="nameAddFieldset2">
+                <legend class="legend">Username and Password</legend>
+
+                <table class="userAddPass">
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" size="10"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="text" size="10"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" name="" id="showp">
+                            <label for="showp">show password</label>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset><br>
+
+
+            <table class="lastTable">
+                <tr>
+                    <td class="lastTableTD">
+                        <input class="register" type="button" value="Register">
+                    </td>
+                </tr>
+            </table>
+
+
+        </form>
+    </div>
+</body>
+</html>

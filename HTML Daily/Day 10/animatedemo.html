@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            background-color: yellow;
+            border:2px solid red;
+            border-radius: 10px;
+            margin:10px;
+            width:40%;
+
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#btn').click(function(){
+                $('#div1').animate({"color":"blue",
+                     "font-size":"40px","width":"70%"},3000,function(){
+                console.log("animation completed")
+
+            })
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <button type="button" id="btn">animate div</button>
+    <div id="div1">
+        This is div 1
+        <ul>
+            <li>mobile</li>
+            <li>books</li>
+        </ul>
+    </div>
+</body>
+</html>

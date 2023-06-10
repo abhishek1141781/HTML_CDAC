@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <script>
+            var ob={pid:123,pname:'Kishori',desg:'mgr'};
+            alert(ob.pid+"---"+ob.pname);
+            //to convert javascript object into json format(text format)
+            var jsonob=JSON.stringify(ob);
+            alert(jsonob);
+            localStorage.data=jsonob;
+            var getob=localStorage.data
+            //parse function will convert JSON to javascript object
+            var ob1=JSON.parse(getob);
+            alert(ob1);
+            var prodarr=[{pid:1,pname:'chair',qty:34,price:3456},
+            {pid:2,pname:'table',qty:56,price:5555}]
+            //localStorage.parr=JSON.stringfy(prodarr)
+            localStorage.setItem("parr",JSON.stringify(prodarr));
+            prodarr=JSON.parse(localStorage.parr);
+        </script>
+    </body>
+</html>

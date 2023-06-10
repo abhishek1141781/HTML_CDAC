@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+
+            // caught ReferenceError: one is not defined
+            // You need to define the values of the array arr5 as strings, enclosed in quotes
+        var arr5 = ["one", "two", "three", "four", "five"]
+        document.getElementById("mydiv").innerHTML=arr5
+
+        for(var i=0; i<arr5.length;i++){
+            // alert(arr5)
+            // arr5[i] = arr5[i].split("").reverse().join("")
+            arr5[i] = arr5[i].split("").rev
+            alert(arr5)
+        }
+
+        arr5.sort((a,b)=>a.localeCompare(b))
+        // arr5.sort()
+
+        document.getElementById("mydiv").innerHTML+="<br>"+arr5
+
+    })
+        </script>
+        
+        
+</head>
+<body>
+    <p>An array contains a set of 5 words. Write Javascript to reverse each word and arrange the resulting words
+        in alphabetical order. Make use of array functions<p>
+        
+        <div id="mydiv"></div>
+</body>
+</html>

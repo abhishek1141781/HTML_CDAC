@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <script>
+            arr=[12,13,1,4,5,6,7,10,100];
+            var pos=arr.indexOf(4);
+            //delete 2 values from pos, it will delete 4 and 5
+            arr.splice(pos,2)
+            document.write(arr+"<br>");
+            //insert values at 1 st index position
+            //it will add 100,200 qnd 300 before 13
+            //arr.splice(1,0,100,200,300)
+            //document.write(arr+"<br>");
+
+            //delete the value from the 1st index position
+            //insert given values at 1 st index position
+            //it will add 100,200 qnd 300 before 1, 13 will be deleted
+            arr.splice(1,1,100,200,300)
+            document.write(arr+"<br>");
+            document.write(arr.reverse());
+        </script>
+    </body>
+</html>

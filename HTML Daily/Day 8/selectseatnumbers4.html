@@ -1,0 +1,48 @@
+<html>
+    <head>
+      <script>
+        var arr=[];
+        function getdetails(ev){
+            var val=ev.target.value;
+            var pos=arr.findIndex(a=>a===val);
+            if(event.target.checked){
+                if(pos===-1){
+                  arr.push(val);
+                }
+            }else{
+                if(pos!==-1){
+                  arr.splice(pos,1);
+                }  
+            }
+            console.log(arr);
+
+        }
+        function showselected(){
+           document.getElementById("mydiv").innerHTML=arr; 
+        }
+      </script>
+   </head>
+    <body>
+        <input type="checkbox" name="1" id="1" value="1" onchange="getdetails(event)">
+        <label for="1" >1</label>
+        <input type="checkbox" name="2" id="2" value="2" onchange="getdetails(event)">
+        <label for="2">2</label>
+        <input type="checkbox" name="3" id="3" value="3" onchange="getdetails(event)">
+        <label for="3">3</label>
+        <input type="checkbox" name="4" id="4" value="4" onchange="getdetails(event)">
+        <label for="4">4</label>
+        <input type="checkbox" name="5" id="5" value="5" onchange="getdetails(event)">
+        <label for="5">5</label>
+        <input type="checkbox" name="6" id="6" value="6" onchange="getdetails(event)">
+        <label for="6">6</label>
+        <input type="checkbox" name="7" id="7" value="7" onchange="getdetails(event)">
+        <label for="7">7</label>
+        <input type="checkbox" name="8" id="8" value="8" onchange="getdetails(event)">
+        <label for="8">8</label>
+        <input type="checkbox" name="9" id="9" value="9" onchange="getdetails(event)">
+        <label for="9">9</label>
+        <button type="button" name="btn" id="btn" value="btn" onclick="showselected()">show selected</button>
+        <div id="mydiv">
+        </div>
+    </body>
+</html>

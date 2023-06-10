@@ -1,0 +1,80 @@
+<html>
+
+    <head>
+        <style>
+            .mainTable{
+                border: 5px solid darkcyan;
+                /* cellspacing: 2px */
+                border-collapse: collapse;
+                width: 100%;
+
+            }
+            .mainTable td:nth-child(2){
+                width: 400px;
+            }
+            .tdDOJ{
+                display: flex;
+            }
+            .mainTable input{
+                /* width: 100%; */
+            }
+            .mainTable td {
+                border: 2px solid black;
+                padding: 5px;
+            }
+            .DMY{
+                width: 50%;
+            }
+        </style>
+
+
+    </head>
+
+
+    <body>
+
+        <table class="mainTable">
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="box1" id="box1"></td>
+            </tr>
+
+
+            <tr>
+                <td>Employee Code</td>
+                <td><input type="text" name="box2"
+                    id="box2"></td>
+            </tr>
+
+            <tr>
+                <td>Department</td>
+                <td class="DMY">
+                    <input type="radio" name="dept" id="admin"><label for="admin">ADMIN</label><br>
+                    <input type="radio" name="dept" id="hr"><label for="hr">HR</label><br>
+                    <input type="radio" name="dept" id="tech"><label for="tech">TECHNICAL</label><br>
+                    <input type="radio" name="dept" id="acc"><label for="acc">ACCOUNTS</label><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Date of Joining</td>
+                <td class="tdDOJ">
+                    <input type="text" name="doj" id="doj">/
+                    <input type="text" name="doj" id="doj">/
+                    <input type="text" name="doj" id="doj">
+                </td>
+            </tr>
+
+
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+
+
+        </table>
+
+
+
+    </body>
+</html>

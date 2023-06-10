@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <script>
+        function showdata(){
+            //retreive data from text boxes
+            var s=document.getElementById("s").value;
+            //getting reference of select dropdown
+            var op=document.getElementById("op");
+            //selecting the value of selected option
+            var val=op.options[op.selectedIndex].value;
+            switch(val){
+                case "upper":
+                    var result=s.toUpperCase();
+                    break;
+                case "lower":
+                    var result=s.toLowerCase();
+                    break
+                case "slice":
+                    var start=parseInt(prompt("enter start value"));
+                    var end=parseInt(prompt("enter end value"));
+                    //retireve the string from start index to end index
+                    //end index is excluded
+                    var result=s.slice(start,end);  
+                    break;
+                case "search": 
+                    var pattern=/ain/gi
+                    //find the position of first occurance 
+                    var result=s.search(pattern)
+                    break;
+                case "replace":
+                    var pattern=/ain/gi 
+                    // if g flag is given then it will replace all occurances
+                    //otherwise it will replace only 1 st occurance
+                    var result=s.replace(pattern,"xxxxxx")
+                    break;
+                case "match":
+                    var pattern=/ain/gi 
+                    // match returns all occurances in araay of string
+                    
+                    var result=s.match(pattern); 
+                    break;
+                case "split": 
+                    delimiter=prompt("enter delimiter");
+                    //break the string at delimiter and returns a array 
+                    var result=s.split(delimiter);
+                    break;
+                case "includes": 
+                    var searchstr=prompt("enter string to search")
+                    ///returns true if the substring found, 
+                    //returns false otherwise
+                    var result=s.includes(searchstr);
+                    break
+            }
+            document.getElementById("mydiv").innerHTML=result;
+        }
+    </script>
+    </head>
+    <body>
+        String : <input type="text" name="s" id="s">
+        Operation : <select id="op" name="op">
+            <option value="upper">uppercase</option>
+            <option value="lower">lowercase</option>
+            <option value="slice">slice</option>
+            <option value="search">search</option>
+            <option value="replace">replace</option>
+            <option value="match">match</option>
+            <option value="split">split</option>
+            <option value="includes">includes</option>
+        </select>
+        <button type="button" id="btn" name="btn" onclick="showdata()">show data</button>
+        <div id="mydiv">
+
+        </div>
+    </body>
+</html>

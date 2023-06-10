@@ -1,0 +1,64 @@
+<html><head>
+    <style>
+        #div1,#div2{
+            background-color: yellow;
+            border:2px solid red;
+            border-radius: 10px;
+            margin:10px;
+            width:40%;
+
+        }
+        #div2{
+            background-color: cyan;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#fadeIn').click(function(){
+                $('#div1').fadeIn(1000,function(){
+                    console.log("fadeIn completed")
+                })
+                $('#div2').fadeOut(1000,function(){
+                    console.log("fadeOut completed")
+                })
+            })
+            $('#fadeout').click(function(){
+                $('#div1').fadeOut(1000,function(){
+                    console.log("fadeOut completed")
+                })
+                $('#div2').fadeIn(1000,function(){
+                    console.log("fadeIn completed")
+                })
+            })
+            $('#fadeTo').click(function(){
+                $('#div1').fadeTo(1000,0.3,function(){
+                    console.log("show completed")
+                })
+                $('#div2').fadeTo(1000,0.3,function(){
+                    console.log("hide completed")
+                })
+            })
+        })
+    </script>
+</head>
+    <body>
+        <button type="button" name="fadeIn" id="fadeIn" value="fadeIn">fadeIn</button>
+        <button type="button" name="fadeout" id="fadeout" value="fadeout">fadeout</button>
+        <button type="button" name="fadeTo" id="fadeTo" value="fadeTo">fadeTo</button>
+        <div id="div1">
+            This is div 1
+            <ul>
+                <li>mobile</li>
+                <li>books</li>
+            </ul>
+        </div>
+        <div id="div2">
+            This is div 2
+            <ol>
+                <li>mobile</li>
+                <li>books</li>
+            </ol>
+        </div>
+    </body>
+</html>

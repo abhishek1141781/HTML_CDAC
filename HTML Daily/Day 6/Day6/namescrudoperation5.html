@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        names=["Revati","Rajan","Atharv"]
+        var displaynames=(arr=names)=>{
+            var str="<ul>"
+            for(var ob of arr){
+                str+="<li>"+ob+"</li>"
+            }
+            str+="</ul>";
+            document.getElementById("mydiv").innerHTML=str;
+        }
+        function addname(){
+            //retrieve values from the text box
+            var nm=document.getElementById("nm").value;
+            //add new name in the array at the end
+            names.push(nm);
+            //display modified array in unordered list
+            displaynames();
+            //clear the text box
+            document.getElementById("nm").value="";
+            //set the focus in the text box
+            document.getElementById("nm").focus();
+        }
+        var updatename=function(){
+             //retrieve values from the text box
+             var nm=document.getElementById("nm").value;
+             var pos=names.indexOf(nm);
+            if(pos!==-1){
+                 var newnm=prompt("enter new name");
+                 names[pos]=newnm;
+                 displaynames();
+            }else{
+                alert("not found");
+            }
+             //clear the text box
+             document.getElementById("nm").value="";
+            //set the focus in the text box
+            document.getElementById("nm").focus();
+        }
+        function displaybylength(){
+            var len=parseInt(prompt("enter length"));
+            arr2=names.filter(a=>a.length>=len);
+            displaynames(arr2);
+        }
+        function deletename(){
+            //retrieve values from the text box
+            var nm=document.getElementById("nm").value;
+            //var pos=names.findIndex(a=>a===nm);
+            var pos=names.indexOf(nm);
+            if(pos!==-1){
+                //delete the name from the position
+                names.splice(pos,1);
+                displaynames();
+           
+            }
+            else{
+                alert("not found");
+            }
+             //clear the text box
+             document.getElementById("nm").value="";
+            //set the focus in the text box
+            document.getElementById("nm").focus();
+            
+
+        }
+    </script>
+</head>
+<body onload="displaynames()">
+    <form>
+        name: <input type="text" name="nm" id="nm"><br>
+        <button type="button" name="btn" id="add" value="add" onclick="addname()">Add name</button>
+        <button type="button" name="btn" id="delete" value="delete" onclick="deletename()">delete name</button>
+        <button type="button" name="btn" id="update" value="update" onclick="updatename()">update name</button>
+        <button type="button" name="btn" id="display" value="display" onclick="displaybylength()">display name by length</button>
+    </form>
+    <div id="mydiv">
+
+    </div>
+    
+</body>
+</html>

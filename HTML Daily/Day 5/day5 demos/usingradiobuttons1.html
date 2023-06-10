@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <script>
+            function factorial(n1){
+                var f=1;
+                for(var i=1;i<=n1;i++){
+                    f=f*i;
+                }
+                return f;
+            }
+            function calculateresult(){
+                // how to print and see what's stored in n1
+                var n1=parseInt(document.getElementById("n1").value)
+                
+                // console.log(n1)
+                // document.getElementById("n1Value").textContent = n1;
+                // document.getElementById("n1Value").innerHTML = n1;
+
+                // document.write(n1)
+                var n2=parseInt(document.getElementById("n2").value)
+                var arr=document.getElementsByName("operation");
+                var op;
+                //both these loops will assign the value of checked 
+                //radion button to var op
+                /*for(var i=0;i<arr.length;i++){
+                    if(arr[i].checked){
+                       op=arr[i].value;
+                       break;
+                    }
+                }*/
+                //array foreach loop in javascript
+                for(var ob of arr){
+                   if(ob.checked){
+                    op=ob.value;
+                    break;
+                   }
+                }
+                //alert(op);
+                // perform the operation based on value of op
+                switch(op){
+                    case "add":
+                        var result="Addition : "+(n1+n2);
+                        break;
+                    case "subtract":
+                        result="Subtraction : "+(n1-n2);
+                        break;
+                    case "factorial":
+                        result="Factorial :"+factorial(n1);
+                        break;
+                }
+                //to display value of result in the textbox
+                document.getElementById("result").value=result;
+                //to clear the text boxes
+                document.getElementById("n1").value="";
+                document.getElementById("n2").value="";
+                //focus will send the control in the text box
+                document.getElementById("n1").focus()
+            }
+                // <p id="n1Value"></p>
+                // document.getElementById("n1Value").textContent = n1;
+        </script>
+    </head>
+    <body>
+        <form>
+            Number1 : <input type="text" id="n1" name="n1" required autofocus><br>
+            Number2 : <input type="text" id="n2" name="n2" required><br>
+            Result : <input type="text" id="result" readonly name="result"><br>
+
+
+            <input type="radio" name="operation" id="add" value="add">
+            <label for="add">Add</label>
+            
+            <input type="radio" name="operation" id="subtract" value="subtract">
+            <label for="subtract">subtract</label>
+            
+            <input type="radio" name="operation" id="factorial" value="factorial">
+            <label for="factorial">factorial</label><br>
+            
+            <button type="button" id="btn" name="btn" value="btn" onclick="calculateresult()">Calculate Result</button>
+            <p id="n1Value"></p>
+        </form>
+
+        <p id="n1Value"></p>
+
+        <!-- document.getElementById("n1Value").textContent = n1; -->
+    </body>
+</html>

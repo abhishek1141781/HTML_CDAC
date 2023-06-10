@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+
+        function printTable(){
+            var num=document.getElementById("inp").value
+            var str=""
+            console.log(str)
+            // str=<tab>
+            for(var i=1;i<=10;i++){
+                str+=num + "*" + i + "=" + num*i + "<br>" 
+            }
+            console.log(str)
+            document.getElementById("mydiv").innerHTML=str
+        }
+
+    </script>
+</head>
+<body>
+    <h3>Write a program to print the multiplication table of a given number up to 10 multiples. Eg for number 2,
+        output should be like</h3>
+
+    Input No for table: <input type="text" name="" id="inp"><br><br>
+
+    <button id="table" onclick="printTable()">Print Table</button>
+
+    <div id="mydiv"></div>
+</body>
+</html>

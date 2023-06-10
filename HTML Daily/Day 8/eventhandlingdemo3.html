@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script>
+            function changebackground(event){
+               var ob=event.target;
+               ob.setAttribute("style","background-color:yellow")
+            }
+            function resetbackground(event){
+                var ob=event.target;
+                ob.setAttribute("style","background-color:white")
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            name : <input type="text" name="nm" id="nm" onfocus="changebackground(event)" onblur="resetbackground(event)"><br>
+            adress : <input type="text" name="addr" id="addr"  onfocus="changebackground(event)" onblur="resetbackground(event)"><br>
+            mobile : <input type="text" name="mobile" id="mobile" onfocus="changebackground(event)" onblur="resetbackground(event)"<br>
+            email : <input type="email" name="email" id="email" onfocus="changebackground(event)" onblur="resetbackground(event)"><br>
+            
+        </form>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <script>
+            //duplicate declaration is allowed
+            var v="hello";
+            var v=34;
+            //duplicate declaration is not allowed
+            let a=34;
+            //let a="xxx";
+           /// var is global scope, so accessible 
+           //anywhere in the program
+            for(var i=0;i<10;i++){
+                a++;
+            }
+            document.write("variable i :"+i)
+             /// let is blocked scope, so accessible only inside for loop
+            for(let j=0;j<10;j++){
+                a++;
+            }
+            document.write("variable j :"+j)
+
+        </script>
+    </body>
+</html>

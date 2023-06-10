@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <script>
+            function compute(){
+                var principle = parseInt(document.getElementById("amt").value);
+                
+                var annualInterestRate = parseInt(document.getElementById("rate").value);
+                
+                var repaymentPeriod = parseInt(document.getElementById("time").value);
+                
+                if(isNaN(principle) || isNaN(repaymentPeriod))
+                {
+                   alert("Please enter valid loan amount ");
+                   return;
+                }
+                if (principle > 1500000) {
+                    alert("Loan amount should not be more than 15 lakhs. ");
+                return;
+                }
+                if (repaymentPeriod < 7 || repaymentPeriod > 15) {
+                    alert("Repayment period should be between 7 yrs to 15 yrs. ");
+                return;
+                }
+                var monthlyInterestRate = annualInterestRate / 12;
+
+                var numPayments = repaymentPeriod * 12;
+
+                var monthlyPayment = (monthlyInterestRate * principle) / (1 - Math.pow(1 + monthlyInterestRate, -numPayments));
+                monthlyPayment = monthlyPayment.toFixed(2);
+
+                document.getElementById("mpayment").value = monthlyPayment;
+                document.getElementById("tpayment").value = (monthlyPayment * numPayments).toFixed(2);
+                document.getElementById("tipayment").value = ((monthlyPayment * numPayments) - principle).toFixed(2);
+            }  
+
+        </script>
+    </head>
+    <body>
+        <form>
+            <h3>Enter Loan Information:</h3>
+            <table>
+                <tr>
+                    <td>1) Amount of the loan(any currency):</td>
+                    <td><input type="text" name="amt" id="amt" pattern="[0-9]*"></td>
+                    <!-- <td><span id="errtxt" style="color: red;"></span></td> -->
+                </tr>
+                <tr>
+                    <td>2) Annual percentage rate of interest:</td>
+                    <td><input type="text" name="rate" id="rate" pattern="[0-9]*"></td>
+                    </tr>
+                <tr>
+                    <td>3) Repayment period in years:</td>
+                    <td><input type="text" name="time" id="time" pattern="[0-9]*"></td>
+                    <!-- <td><span id="errtime" style="color: red;" ></span></td> -->
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" name="btn" id="btn" onclick="compute()">Compute</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>Payment Information:</h3></td>
+                </tr>
+                <tr>
+                    <td>4) Your monthly payment will be:</td>
+                    <td><input type="text" name="mpayment" id="mpayment" readonly></td>
+                </tr>
+                <tr>
+                    <td>5) Your total payment will be:</td>
+                    <td><input type="text" name="tpayment" id="tpayment" readonly></td>
+                </tr>
+                <tr>
+                    <td>6) Your total interest payment will be:</td>
+                    <td><input type="text" name="tipayment" id="tipayment" readonly></td>
+                </tr>
+
+            </table>
+        </form>
+        
+
+    </body>
+</html>

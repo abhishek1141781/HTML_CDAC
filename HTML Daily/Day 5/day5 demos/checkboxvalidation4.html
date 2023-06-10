@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <script>
+            var hobbies=[];
+            function validatecity(){
+                var city=document.getElementById("city");
+                if(city.selectedIndex===0){
+                    document.getElementById("errcity").innerHTML="select one city"
+                    return false;
+
+                }
+                document.getElementById("errcity").innerHTML="";
+                document.getElementById("mydiv").innerHTML+="city :"+city.options[city.selectedIndex].value
+                return true;
+                //alert(city.selectedIndex);
+                //alert(city.options[city.selectedIndex].value);
+            }
+            function validatehobbies(){
+                hobbies=[];
+                var arr=document.getElementsByName("hobbies");
+                var cnt=0;
+                for(var ob of arr){
+                    if(ob.checked){
+                        cnt++;
+                        hobbies.push(ob.value);
+
+                    }
+                }
+                if(cnt>=2){
+                    document.getElementById("errhb").innerHTML="";
+                    document.getElementById("mydiv").innerHTML=hobbies+"<br>"
+                    return true;
+                }
+                else{
+                    document.getElementById("errhb").innerHTML="pls select minimu  2 hobbies"
+                    return false;
+                }
+
+            }
+            function validatedata(){
+                var flag=validatehobbies();
+                var flag1=validatecity();
+                //return flag && flag1;
+                return false;
+            }   
+        </script>
+    </head>
+    <body>
+        <form onsubmit="return validatedata()">
+            <input type="checkbox" name="hobbies" id="reading" value="reading">
+            <label for="reading">Reading</label>
+            <input type="checkbox" name="hobbies" id="biking" value="biking">
+            <label for="biking">biking</label>
+            <input type="checkbox" name="hobbies" id="trekking" value="trekking">
+            <label for="trekking">trekking</label>
+            <input type="checkbox" name="hobbies" id="cycling" value="cycling">
+            <label for="cycling">cycling</label><span id="errhb"></span><br>
+            City : <select name="city" id="city">
+                <option value"s">----select one---</option>
+                <option value="pune">pune</option>
+                <option value="mumbai">mumbai</option>
+                <option value="Nashik">Nashik</option>
+                <option value="Nagpur">Nagpur</option>
+            </select> <span id="errcity"></span><br>
+            <button type="submit" name="btn" id="btn" value="btn">submit</button>
+        </form>
+        <div id="mydiv">
+
+        </div>
+    </body>
+</html>

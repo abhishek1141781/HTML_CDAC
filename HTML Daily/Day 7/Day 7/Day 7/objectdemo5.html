@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    emp={
+        empid:111,
+        ename:"Rajan",
+        dept:{dname:'Gaming',deptno:12},
+        hobbies:['gaming','biking','driving'],
+        experience:[{name:'TechM', years:5},{name:"igate",years:7}],
+        married:false
+        }
+        document.write(emp.experience[1].years+"<br>");
+        // document.write(`${emp.experience[1].years}<br>`)
+        document.write(emp.experience[0].name+"<br>");
+        // document.write(`${emp.experience[0].name}<br>`);
+        document.write(emp.hobbies[2]);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <script src="./js/usingradiobutton2.js"></script>
+        <script >
+            function validatenum(numid,errm){
+                // (numid).value => here 
+                var n1=document.getElementById(numid).value;
+                //isNaN is not a number, if the value contains even one 
+                //alphabet isNaN will return true
+                
+                if(isNaN(n1)){
+                    //alert("string");
+                    document.getElementById(errm).innerHTML="Pls enter numeric data"
+                    return false;
+                }
+                else{
+                    document.getElementById(errm).innerHTML="";
+                    return true;
+                }
+            }
+
+            function vadlidateradiobutton(){
+                var arr=document.getElementsByName("operation");
+                for( var ob of arr){
+                    if(ob.checked){
+                        document.getElementById("errradio").innerHTML="";
+                        return true;
+                    }
+                }
+                document.getElementById("errradio").innerHTML="pls select the operatiron";
+                return false;
+            }
+           function validatedata(){
+              var flag=validatenum("n1","errn1");
+              var flag1=validatenum("n2","errn2");
+              var flag2=vadlidateradiobutton();
+              if(flag && flag1 && flag2){
+                //alert("valid data");
+                calculateresult();
+              }else{
+                alert("invalid data");
+              }
+           } 
+        </script>
+    </head>
+    <body>
+        <form>
+            Number1 : <input type="text" id="n1" name="n1"  autofocus><span id="errn1" style="color:red"></span><br>
+            Number2 : <input type="text" id="n2" name="n2"><span id="errn2"></span><br>
+            Result : <input type="text" id="result" readonly name="result"><br>
+
+
+            <input type="radio" name="operation" id="add" value="add">
+            <!-- we can directly write 'Add' but upon clicking on Add we can't select the radio button, but using label tag we can select radio button even by clicking on the label and not just the radio circle.
+            Also one more use of label is, using for tag, the label is connected to the radio button via the id value here using add.-->
+            <label for="add">Add</label>
+
+            <input type="radio" name="operation" id="subtract" value="subtract">
+            <label for="subtract">subtract</label>
+
+            <input type="radio" name="operation" id="factorial" value="factorial">
+            <label for="factorial">factorial</label> <span id="errradio"></span><br>
+
+            <button type="button" id="btn" name="btn" value="btn" onclick="validatedata()">Calculate Result</button>
+        </form>
+    </body>
+</html>

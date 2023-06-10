@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+        var emparr = []
+
+        function clearform() {
+            document.getElementById("name").value = ""
+        }
+
+        function display() {
+            document.getElementById("mydiv").innerHTML = emparr
+        }
+
+        function addEmp() {
+            var name = document.getElementById("name").value
+            var ob = name
+            emparr.push(ob)
+            display()
+            clearform()
+            document.getElementById("name").focus()
+        }
+
+        function sortEmp() {
+            emparr.sort((a,b)=>a.localeCompare(b))
+            display()
+        }
+
+    </script>
+</head>
+
+<body onload="display()">
+
+    Name: <input type="text" name="name" id="name"><br><br>
+
+    <button id="add" onclick="addEmp()">Add Employee Details</button>
+    <button id="sort" onclick="sortEmp()">Sort Employee Details</button>
+    <!-- <button id="update">Update Employee Details</button>
+    <button id="delete">Delete Employee Details</button>
+    <button id="display">Display Employee Details</button> -->
+
+    <br><br>
+    <div id="mydiv"></div>
+</body>
+
+</html>

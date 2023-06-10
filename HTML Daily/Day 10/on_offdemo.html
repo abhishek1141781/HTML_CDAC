@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script src="../jquery.js"></script>
+        <script>
+            //assign focus and blur event to text box to 
+            //change the background
+            //once you click on display city button remove 
+            //focus and blur event from the text box
+            //Note : use bind, unbind and also try with delegate, undelegate
+            $(document).ready(function(){
+                citycnt=2;
+                //will assign click event to btn1
+                $('#btn1').on("click",function(){
+                    //create a clone of input 
+                  var inp=$('#city1').clone();
+                  //change the id attribute's value
+                  //$(inp).attr("id","city"+citycnt)
+                  //remove contents of the text box
+                  $(inp).attr({"id":"city"+citycnt})
+                  citycnt++;
+                  //remove contents of the text box
+                  $(inp).val("");
+                  //add after last child of div
+                  $('#mydiv').append(inp);
+                  $('#mydiv').append("<br>");
+                });
+                $('#btn2').click(function(){
+                    //removing the the event
+                    $('#btn1').off("click");
+                    //retrieve the value of all textboxes and store 
+                    //it in the array
+                    city=[];
+                    $('input[name=city]').each(function(index){
+                        city.push($(this).val());
+                    })
+                     $('#mydiv').append("<p>"+city.toString()+"</p>");
+                })
+                //it will execute event handler only once.
+                $('#test').one("click",function(){
+                    alert("in click event of test button")
+                })
+            })
+        </script>
+
+    </head>
+    <body>
+        <div id="mydiv">
+        <input type="text" name="city" id="city1">&nbsp;&nbsp;
+        <button type="button" name="btn" id="test" value="test">test one function new</button>
+        <button type="button" name="btn" id="btn1" value="btn1">add new</button>
+        <button type="button" name="btn" id="btn2" value="btn2">display city</button><br>
+       </div>
+    </body>
+</html>

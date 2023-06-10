@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function getWeekDay(date) {
+            const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const dayIndex = date.getDay();
+            return daysOfWeek[dayIndex];
+        }
+
+        // Example usage:
+        const date = new Date(2012, 0, 3);
+        // console.log(getWeekDay(date)); // Output: "Tue"
+        // var result = getWeekDay(date)
+        const currentDate = new Date();
+        const resultcur = getWeekDay(currentDate);
+        const result = getWeekDay(date)
+
+        // document.getElementById("mydiv").innerHTML=date
+        window.onload = function(){
+            document.getElementById("mydiv").innerHTML = resultcur
+        }
+        </script>
+</head>
+
+<body>
+    <!-- why is this not working while window.onload = function is working -->
+<!-- <body onload="getWeekDay()"> -->
+
+    <div id="mydiv"></div>
+</body>
+
+</html>

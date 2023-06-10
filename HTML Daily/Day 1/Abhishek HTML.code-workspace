@@ -1,0 +1,52 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Day 2"
+		},
+		{
+			"path": "../Day 3"
+		},
+		{
+			"path": "../Day 4"
+		},
+		{
+			"path": "../Day 5"
+		},
+		{
+			"path": "../Day 6"
+		},
+		{
+			"path": "../Day 7"
+		},
+		{
+			"path": "../Day 8"
+		},
+		{
+			"path": "../Assignments"
+		},
+		{
+			"path": "../Day 9"
+		},
+		{
+			"path": "../Day 10"
+		},
+		{
+			"path": "../Day 11"
+		},
+		{
+			"path": "../Day 12"
+		},
+		{
+			"path": "../Day9 jquery"
+		},
+		{
+			"path": "../Day 14"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Assignments"
+	}
+}

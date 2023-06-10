@@ -1,0 +1,45 @@
+<html>
+    <head>
+    <script>
+        function checkpasswd(){
+            var pass=document.getElementById("pass").value;
+            var cpass=document.getElementById("cpass").value;
+            if(pass===cpass){
+                document.getElementById("errmsgpass").innerHTML="";
+                return true;
+            }
+            document.getElementById("errmsgpass").innerHTML="password and confirm password are not matching"
+            return false;
+        }
+        function validateuname(){
+            var uname=document.getElementById("uname").value;
+            
+            if(uname.trim().length<3){
+                document.getElementById("erruname").innerHTML="user name cannot be only spaces"
+                return false;
+            }
+            document.getElementById("erruname").innerHTML="";
+            return true;
+        }
+        function validatedata(){
+            var flag=validateuname();
+            var flag1=checkpasswd();
+            return flag && flag1;
+             
+        }
+    </script>
+    </head>
+    <body>
+        <form onsubmit="return validatedata()">
+        User name: <input type="text" name="uname" id="uname" minlength="3" required><span id="erruname"></span><br>
+        Password : <input type="password" name="pass" id="pass"><br>
+        confirm Password : <input type="password" name="cpass" id="cpass"><span id="errmsgpass"></span><br>
+
+        <label id="str">testing</label>
+        captcha : <input type="text" name="captcha" id="captcha">
+
+        <button type="submit" name="btn" id="btn" value="btn">Login</button>
+        <button type="reset" name="btn" id="btn1" value="btn1">Cancel</button> 
+    </form>
+    </body>
+</html>

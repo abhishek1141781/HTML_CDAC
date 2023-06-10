@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function searchTraining(){
+            var div=document.getElementsByTagName("div")
+            alert(div)
+            var trainDiv=[]
+
+            // looping through each div element
+            for(let i=0;i<div.length;i++){
+                if(div[i].textContent.indexOf("training") !== -1){
+                    trainDiv.push(div[i].id)
+                    alert(trainDiv)
+                }
+            }
+
+            document.getElementById("mydiv").innerHTML=trainDiv
+            console.log(trainDiv);
+        }
+
+    </script>
+</head>
+<body>
+
+    
+    <div id="div1">This is the first div training</div>
+    <div id="div2">This is the second div</div>
+    <div id="div3">This is the third div training</div>
+    <div id="div4">This is the fourth div</div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <br><br><br>
+    <button type="button" onclick="searchTraining()">Find divs with string training</button> 
+    <div id="mydiv"></div>
+</body>
+</html>

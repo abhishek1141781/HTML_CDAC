@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <style>
+            div{
+                border:2px solid red;
+                width:300px;
+                height:200px;
+                border-radius: 10px
+            }
+            .fixed{
+                position:fixed;
+                width:200px;
+                height:100px;
+                border:2px solid green;
+                border-radius: 10px;
+                right:0;
+                bottom:0
+            }
+            #mydiv1{
+                /*position:relative;*/
+                width:150px;
+                height:150px;
+                border:2px solid pink;
+            }
+            #mydiv2{
+                position:absolute;
+                right:0;
+                height:100px;
+                width:100px;
+                border:2px solid blue;
+            }
+            #parent{
+                position:relative;
+            }
+        </style>
+    </head>
+    <body>
+    <h1>position demo</h1>
+    <div id="parent">
+        <div id="mydiv1">
+            This div with position relative
+            <div id="mydiv2">
+                this is div with position absolute
+            </div>
+        </div>
+    </div>
+    <div id="mydiv4">
+        This div with position static
+
+    </div>
+    <div style="position:sticky; bottom:0">
+        This is div sticky
+    </div>
+    <div class="fixed">
+
+        this div has fixed position
+    </div>
+    <div>
+        <ul type="circle">
+            <li>Mobile
+                <ol>
+                    <li>Google pixel </li>
+                    <li>Iphone 13</li>
+                    <li>Samasung</li>
+                </ol>
+            </li>
+            <li>TV
+                <ul>
+                    <li>MI TV</li>
+                    <li>Sony TV</li>
+                    <li>Sansung TV</li>
+                </ul>
+            </li>
+            <li>Freeze</li>
+        </ul>
+        <hr>
+        <ol>
+            <li>Mobile</li>
+            <li>TV</li>
+            <li>Freeze</li>
+        </ol>
+        <ol type="a" start="3">
+            <li>Mobile
+                <li>TV
+                    <li>Freeze
+        </ol>
+        <dl>
+            <dt>term1</dt>
+            <dd>This is term1</dd>
+            <dt>term2</dt>
+            <dd>This is term2</dd>
+            <dt>term3</dt>
+            <dd>This is term3</dd>
+        </dl>
+        <ul type="circle">
+            <li>Mobile
+                <ol>
+                    <li>Google pixel </li>
+                    <li>Iphone 13</li>
+                    <li>Samasung</li>
+                </ol>
+            </li>
+            <li>TV
+                <ul>
+                    <li>MI TV</li>
+                    <li>Sony TV</li>
+                    <li>Sansung TV</li>
+                </ul>
+            </li>
+            <li>Freeze</li>
+        </ul>
+        <hr>
+        <ol>
+            <li>Mobile</li>
+            <li>TV</li>
+            <li>Freeze</li>
+        </ol>
+        <ol type="a" start="3">
+            <li>Mobile
+                <li>TV
+                    <li>Freeze
+        </ol>
+        <dl>
+            <dt>term1</dt>
+            <dd>This is term1</dd>
+            <dt>term2</dt>
+            <dd>This is term2</dd>
+            <dt>term3</dt>
+            <dd>This is term3</dd>
+        </dl>
+    </div>
+</body>
+
+</html>

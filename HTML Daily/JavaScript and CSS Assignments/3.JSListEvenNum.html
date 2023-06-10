@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script>
+            var findEvenList = function(){
+                var n = parseInt(document.getElementById("num").value)
+                // alert(1)
+                // alert(n)
+                var string=""
+                while(n>=0){
+                    // alert(2)
+                    if(n%2==0){
+                        // alert(3)
+                        string+=n+" "
+                    } 
+                    n--
+                }
+                document.getElementById("mydiv").innerHTML=string
+            }
+        </script>
+    </head>
+    <body>
+        <h3>Write a function to list all even numbers less than or equal to the number n. Take the value of n as input
+            from user. Use while loop</h3>
+
+        Enter a num n: <input type="text" name="num" id="num">
+        <br><br>
+        <button id="btn" onclick="findEvenList()">Find Even list</button>
+        <br>
+        <br>
+        <div id="mydiv"></div>
+    </body>
+</html>

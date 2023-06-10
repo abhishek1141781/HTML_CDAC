@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <style>
+            .fcontainer2,.fcontainer{
+                display:flex;
+                flex-direction:row;
+                height: 500px;
+                /* flex-direction: column-reverse; */
+               /* flex-direction: column-reverse; row-reverse; row; */
+               flex-wrap: nowrap;
+            /* flex-wrap: wrap; nowrap; wrap-reverse */
+            /* flex-flow: row wrap; */
+              border: 2px dashed red;
+             /*justify-content: flex-start; */
+            align-items:center
+            }
+            .fcontainer2{
+                align-items:baseline 
+            }
+            .fitem{
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+            color: white;
+            border: 2px solid cyan
+            }
+            /*.item1{
+                order:10;
+                flex-grow:3
+            }
+            .item3{
+                order:8;
+                flex-grow:8;
+                flex-shrink:0
+            }
+            .item5{
+                order:4
+            }
+            .item4{
+                order:1;
+            }*/
+        </style>
+    </head>
+    <body>
+        <div class="fcontainer">
+            <div class="fitem item1">1</div>
+            <div class="fitem item2">2</div>
+            <div class="fitem item3">3</div>
+            <div class="fitem item4">4</div>
+            <div class="fitem item5">5</div>
+            <div class="fitem item6">6</div>
+            <div class="fitem item7">7</div>
+            <div class="fitem item8">8</div>
+        </div>
+        <div class="fcontainer2">
+            <div class="fitem item1">
+                <h1>1</h1>
+            </div>
+            <div class="fitem item2">
+                <h2>2</h2>
+            </div>
+            <div class="fitem item3">
+                <h3>3</h3>
+            </div>
+            <div class="fitem item4">
+                <h4>4</h4>
+            </div>
+            <div class="fitem item5">
+                <h5>5</h5>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../jquery.js" ></script>
+    <script>
+        $(document).ready(function(){
+            function displayTable(result){
+                var str="<table border='2'><tr><th>userId</th><th>id</th><th>title</th><th>body</th></tr>"
+                    for(var ob of result){
+                        str+=`<tr><td>${ob.userId}</td><td>${ob.id}</td><td>${ob.title}</td><td>${ob.body}</td></tr>`
+                    }
+                    str+="</table>";
+                    $('#tab').html(str);
+            }
+            $('#btn').click(function(){
+                $.ajax({
+                    async:true,
+                    type:'GET',
+                    url:"https://jsonplaceholder.typicode.com/posts/",
+                    success: function(result){
+                         console.log(result);
+                         displayTable(result);
+                    },
+                    error: function(err,xhr,status){
+                         console.log(err);
+                    }
+                })
+            })
+        })
+    </script>
+    <style>
+        div{
+            background-color: cyan;
+            border:2px solid blue;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>mobile</li>
+            <li>books</li>
+            <li>fruits</li>
+        </ul>
+    </div>
+    <button type="button" name="btn" id="btn" value="btn">get data</button>
+    <button type="button" name="btn" id="btn" value="btn">get by id</button>
+    <div id="tab">
+
+    </div>
+    <div id="drop">
+
+    </div>
+</body>
+</html>

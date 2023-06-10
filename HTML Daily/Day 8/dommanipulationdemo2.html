@@ -1,0 +1,65 @@
+<html>
+    <head>
+    <style>
+        #div1,#div2{
+            border:2px solid red;
+            border-radius:10px;
+            background-color: cyan;
+            margin:10px;
+            width:500px;
+        
+        }
+        .hideclass{
+            display:none
+        }
+
+        .showclass{
+            display:block
+        }
+    </style>
+    <script>
+        function showcourse(){
+           var arr=document.getElementsByName("courses"); 
+           for(var ob of arr){
+               if(ob.checked){
+                  alert(ob.value+" is selcted");
+                  return true;
+               }
+           }
+           return false;
+        }
+        function displayform(){
+            var nm=document.getElementById("nm").value;
+            var addr=document.getElementById("addr").value;
+            var check=document.getElementById("more");
+            if(nm!=="" && addr!=="" && check.checked){
+                var mydiv=document.getElementById("div2");
+                mydiv.classList.remove("hideclass");
+                mydiv.classList.add("showclass");
+            }else{
+                alert("pls enter all the values")
+            }
+        }
+    </script>
+    </head>
+    <body>
+        <div id="div1">
+            <form>
+                Name: <input type="text" name="nm" id="nm"><br>
+                Address : <input type="text" name="addr" id="addr"><br>
+                <input type="checkbox" name="more" id="more" onchange="displayform()"><label for="more">Show more</label>
+            </form>
+        </div>
+        <div id="div2" class="hideclass">
+           <form>
+              <input type="radio" name="courses" id="java" value="java">
+              <label for="java">Java</label>
+              <input type="radio" name="courses" id="C++" value="C++">
+              <label for="C++">C++</label>
+              <input type="radio" name="courses" id="javascript" value="javascript">
+              <label for="javascript">javascript</label><br>
+              <button type="button" name="btn" id="btn" value="btn" onclick="showcourse()">Show course</button>
+           </form>
+        </div>
+    </body>
+</html>

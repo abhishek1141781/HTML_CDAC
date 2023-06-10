@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <script src="../jquery.js"></script>
+        <script>
+
+            $('document').ready(function(){
+                function validatename(){
+                     var nm=$('#nm').val();
+                     if(nm.trim().length===0){
+                        $('#errnm').html("pls enter some data");
+                        return false;
+                     }else{
+                        $('#errnm').html("")
+                        return true;
+                     }
+                } 
+
+                function validateplaces(){
+                    /*var arr=document.getElementsByName("places");
+                    for(var ob of arr){
+                        if(ob.checked)
+                          return true;
+                    }
+                    return false*/
+
+                    var ob=$('input[name=place]:checked').val();
+                    if(ob===undefined){
+                        $('#errplace').html("pls select one place")
+                        return false;
+                    }
+                    $('#errplace').html("")
+                    return true;
+
+                }
+
+               
+                function validateaddress(){
+                    var addr=$('#addr').val();
+                     if(addr.trim().length===0){
+                        //to concatenate message in innerHTML property
+                       // $('#erraddr').html($('#erraddr').html()+"pls enter some data");
+                       //to overwrite innerHTML property
+                       $('#erraddr').html("pls enter some data");
+                        return false;
+                     }else{
+                        $('#erraddr').html("")
+                        return true;
+                     }
+                }
+
+                $('#btn').click(function(){
+                    var flag1=validatename();
+                    var flag2=validateaddress();
+                    var flag3=validateplaces();
+
+                })
+            })
+        </script>
+    </head>
+    <body>
+    <form>
+        <table>
+            <tr>
+              <td>Name :</td> 
+              <td><input type="text" name="nm" id="nm"></td>
+              <td id="errnm"></td>
+           </tr>
+           <tr>
+            <td>Address :</td>
+            <td><input type="text" name="addr" id="addr"></td>
+            <td id="erraddr"></td>
+           </tr>
+           <tr>
+            <td>Courses :</td>
+            <td>place
+                <input type="radio" name="" id="a">
+                <label for="a">A</label>
+                <input type="radio" name="place" id="b">
+                <label for="b">B</label>
+                <input type="radio" name="place" id="c">
+                <label for="c">C</label>
+            </td>
+            <td id="errplace">
+
+            </td>
+           </tr>
+           <tr>
+            <td></td>
+            <td>
+                <button type="button" name="btn" id="btn" value="btn">submit</button>
+            </td>
+            <td></td>
+           </tr>
+         
+
+        
+        
+       
+    </table>
+    </form>
+</body>
+</html>

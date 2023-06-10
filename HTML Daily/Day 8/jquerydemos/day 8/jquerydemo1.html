@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+        <!--<script src="../jquery.js"></script>-->
+        <script>
+            $(document).ready(function(){
+                //alert("hello");
+                /*var arr=document.getElementsByTagName("p");
+                for(var i=0;i<arr.length;i++){
+                     arr[i].setAttribute("style","color:red");
+                }*/
+                //$('p,h1').css("color","red");
+                $('p:even').css("color","red");
+                //$('p').css({"color":"red",
+                 //            "font-size":"40px"});
+            })
+        </script>
+    </head>
+    <body>
+        <h1>this is h1</h1>
+        <p id="myp">this is para1 myp</p>
+        <p>this is para12</p>
+        <div>
+            <p>this is para13</p>
+            <p>this is para14</p>
+        </div>
+        <h1>this is h11</h1>
+        <h1>this is h12</h1>
+        <h1>this is h13</h1>
+    </body>
+</html>

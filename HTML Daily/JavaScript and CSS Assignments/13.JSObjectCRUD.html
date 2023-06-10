@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // array is used just to take input from user and store it there, to print it, we're using for each loop and taking out each tuple from the array in the form of an object and concatenating it to an already populated string and then we're printing the string using the innerHTML property of a div
+        var emparr=[{pid:2,name:"abhi",sal:100000,desig:"L5"}]
+
+        function clearform(){
+            document.getElementById("pid").innerHTML=""
+            document.getElementById("name").innerHTML=""
+            document.getElementById("sal").innerHTML=""
+            document.getElementById("desig").innerHTML=""
+        }
+
+        function display(){
+            var str="<table border='2' width='400px'><tr><th>Emp ID</th><th>Name</th><th>Salary</th><th>Designation</th></tr>"
+                // reiterate over the newly updated array and concatenate all the contents to the string str
+                for(var ob of emparr){
+                    str+=`<tr><td>${ob.pid}</td><td>${ob.name}</td><td>${ob.sal}</td><td>${ob.desig}</td></tr>`
+                }
+            document.getElementById("mydiv").innerHTML=str
+        }
+        function addEmp(){
+            var pid=document.getElementById("pid").value
+            var name=document.getElementById("name").value
+            var sal=document.getElementById("sal").value
+            var desig=document.getElementById("desig").value
+
+            var ob={pid,name,sal,desig}
+            emparr.push(ob)
+            display()
+            clearform()
+            document.getElementById("pid").focus()
+        }
+
+        function sortEmp(){
+            
+        }
+
+    </script>
+</head>
+<body onload="display()">
+    
+    Employee id: <input type="text" name="pid" id="pid"><br>
+    Name: <input type="text" name="name" id="name"><br>
+    Salary: <input type="text" name="sal" id="sal"><br>
+    Designation: <input type="text" name="desig" id="desig"><br><br>
+
+    <button id="add" onclick="addEmp()">Add Employee Details</button>
+    <button id="sort" onclick="sortEmp()">Sort Employee Details</button>
+    <!-- <button id="update">Update Employee Details</button>
+    <button id="delete">Delete Employee Details</button>
+    <button id="display">Display Employee Details</button> -->
+
+    <br><br>
+    <div id="mydiv"></div>
+</body>
+</html>

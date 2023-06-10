@@ -1,0 +1,42 @@
+<html>
+    <body>
+       <label for="nm">Name:</label>  
+       <input type="text" name="nm" id="nm" list="names" required><span style="color:red">*</span>
+       <datalist id="names">
+          <option value="Kishori"></option>
+          <option value="Revati"></option>
+          <option value="Rajan"></option>
+          <option value="Atharav"></option>
+          <option value="Tanaya"></option>
+       </datalist><br>
+       <label for="city">City:</label> 
+       <select name="city" id="city" size="3" multiple>
+        <option value="pune">pune</option>
+        <option value="mumbai">mumbai</option>
+        <option value="nashik">nashik</option>
+        <option value="nagpur" selected>nagpur</option>
+        <option value="jalgaon">jalgaon</option>
+        <option value="kolhapur">kolhapur</option>
+       </select><br>
+       <label>color:</label> 
+       <select name="color" id="color">
+          <option>---select one---</option>
+          <option value="red">red</option>
+          <option value="green">green</option>
+          <option value="blue">blue</option>        
+        </select>
+      
+        <label>gender</label>
+        
+            <input type="radio" name="gender" id="male" value="male" checked> 
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label> <br>
+       
+         <input type="file" name="fn" id="fn"><br>
+         <input type="hidden" name="marks" id="marks" value="20">
+    
+
+       <button type="submit" name="btn" id="btn" value="submit">submit</button>
+    </body>
+</html>

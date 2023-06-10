@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+
+            memberArr=["Henry","Saka","odegaard","messi","ronaldo"]
+            
+            for(var i=0;i<memberArr.length;i++){
+                memberArr[i]=memberArr[i].toUpperCase()
+            }
+            let resultArr=memberArr.map(memberArr=>memberArr.toUpperCase()).join(", ")
+            // alert(resultArr)
+            document.getElementById("mydiv").innerHTML=resultArr.toString()
+        })
+    </script>
+</head>
+<body>
+    <div id="mydiv"></div>
+</body>
+</html>

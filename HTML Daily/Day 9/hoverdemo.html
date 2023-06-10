@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <style>
+            .myclass{
+                background-color: cyan;
+                font-size:20px;
+                color:blue
+            }
+            .myp{
+                background-color: yellow;
+                font-size:50px;
+                color:red
+            }
+        </style>
+        <script src="../jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                //$('p').hover(function(){})
+                //hover accepts 2 functions
+                // the first function gets executed when mouseover event occurs
+                //the second function gets executed when mouseout event occurs
+                // in hover you may add only one function, the same function will be 
+                //called twice
+                $('p').hover(function(){
+                    $(this).addClass("myp")
+                    .removeClass("myclass");
+                },function(){
+                    $(this).addClass("myclass")
+                    .removeClass("myp");
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <p class="myclass">this is para</p>
+        <p class="myclass">this is para</p>
+        <p class="myclass">this is para</p>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <script>
+
+    function calcci(){
+        var prin=document.getElementById("principal").value
+        var roi=document.getElementById("roi").value
+        var period=document.getElementById("period").value
+        // var prin=document.getElementById("principal").value
+        // alert("roi"+roi)
+
+        var powered = Math.pow((1+(roi/100)),period)
+        // alert("powered"+powered)
+        // var result=prin*powered-prin
+        var result=prin*(powered-1)
+        // alert("result"+result)
+        // alert(result)
+
+        document.getElementById("ci").value=Math.round(result)
+    }
+
+
+   </script>
+</head>
+<body>
+    <pre>Create a web page to calculate the Compound Interest using the formula given below:
+        Compound Interest =
+        Where:
+        p = Principal,
+        r = Rate of Interest,
+        n = period in years
+        The values used in the example in the following figure are as follows:
+        P = 1000, n = 1, r = 10</pre>
+
+    <div>
+
+        <table>
+            
+            <tr><td>---------------------------------------------------</td></tr>
+            <tr><td>******Calculate Compound Interest*****</td></tr>
+            <tr><td>---------------------------------------------------</td></tr>
+            <!-- <tr>---------------------------------------------------</tr> -->
+        </table>
+
+        <table>
+            <tr>
+                <td>Principal</td>
+                <td>-</td>
+                <td><input type="text" id="principal"></td>
+            </tr>
+
+            <tr>
+                <td>Rate of Interest</td>
+                <td>-</td>
+                <td><input type="text" id="roi"></td>
+            </tr>
+
+            <tr>
+                <td>Period</td>
+                <td>-</td>
+                <td><input type="text" id="period"></td>
+            </tr>
+
+            <tr>
+                <td>Compound Interest</td>
+                <td>-</td>
+                <td><input type="text" id="ci" readonly style="background-color: darkgreen; color: aliceblue;"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <button id="btn" onclick="calcci()">Calculate CI</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+
+
+
+
+    </div>
+
+
+
+
+    
+
+
+
+
+
+    <div id="mydiv"></div>
+</body>
+</html>

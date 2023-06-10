@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        function f1(){
+            var i=23;
+            let j=34;
+            //let is block scope and var is function scope
+            if(i<j){
+                var k=10;
+                let f=34;
+            }
+            document.write("variable i :"+i);
+            document.write("variable j :"+j);
+            document.write("variable k :"+k);
+            //document.write("variable f :"+f);  //error
+
+        }
+        f1()
+        //document.write("variable i :"+i); //error
+         //hoisting of variable is  allowed
+         
+        document.write("the variable v: "+v)
+        var v=56;
+        //hoisting of variable is not allowed
+        //document.write("the variable x: "+x)
+        //let x=56;
+
+        const c=20;
+        //c=45;  //error
+        document.write("12"==12);
+        document.write("12"===12);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

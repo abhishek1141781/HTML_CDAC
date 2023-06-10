@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script>
+        function findlocation(){
+            if(navigator.geolocation){
+              navigator.geolocation.getCurrentPosition(showposition,showerror);
+              //navigator.geolocation.watchPosition(showposition,showerror);
+               
+            }else{
+                document.getElementById("myid").innerHTML="geolocation not supported"
+            }
+        }
+        function showposition(position){
+            document.getElementById("myid").innerHTML="Lattitude: "+position.coords.latitude+"Logitude: "+position.coords.longitude;
+        }
+        function showerror(err){
+           console.log(err,"error occured");
+        }
+    </script>
+    </head>
+    <body>
+        <button type="button" name="btn" id="btn" value="btn" onclick="findlocation()">Find location</button>
+        <div id="myid">
+          display location
+        </div>
+    </body>
+</html>

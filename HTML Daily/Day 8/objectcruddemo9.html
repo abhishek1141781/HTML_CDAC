@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <script>
+            prodarr=[{pid:1,pname:'chair',qty:57,price:3456},
+            {pid:2,pname:'table',qty:56,price:5555}]
+
+           
+
+            var displayTable=(arr=prodarr)=>{
+               var str="<table border='2'><tr><th>Product Id</th><th>Product name</th><th>Quantity</th><th>Price</th> </tr>" 
+                for(var ob of arr){
+                    str+=`<tr><td>${ob.pid}</td><td>${ob.pname}</td><td>${ob.qty}</td><td>${ob.price}</td></tr>`
+                }
+                str+="</table>"
+                document.getElementById("mydiv").innerHTML=str;
+            }
+            function clearform(){
+                document.getElementById("pid").value="";
+                document.getElementById("pname").value="";
+                document.getElementById("qty").value="";
+                document.getElementById("price").value="";
+            }
+            function addproduct(){
+                var pid=parseInt(document.getElementById("pid").value);
+                var pname=document.getElementById("pname").value;
+                var qty=parseInt(document.getElementById("qty").value);
+                var price=parseFloat(document.getElementById("price").value);
+                //create object
+                //var ob={pid:pid,pname:pname,qty:qty,price:price}
+                var ob={pid,pname,qty,price}
+                prodarr.push(ob);
+                displayTable();
+                clearform();
+                document.getElementById("pid").focus();
+            }
+            function deleteproduct(){
+                var pid=parseInt(document.getElementById("pid").value);
+                var pos=prodarr.findIndex(ob=>ob.pid===pid);
+                if(pos!==-1){
+                    prodarr.splice(pos,1);
+                    displayTable();
+                
+                }
+                else{
+                    alert("not found");
+                }
+                clearform();
+                document.getElementById("pid").focus();
+
+            }
+            
+            function finddata(event){
+                console.log(event.key+"-----"+event.which)
+                if(event.which===13){
+                    var searchtxt=document.getElementById("search").value;
+                    
+                    if(searchtxt!==""){
+                        //alert(searchtxt);
+                        var arr=prodarr.filter(a=>a.pname.includes(searchtxt));
+                        console.log(arr);
+                    }else{
+                        arr=[...prodarr];
+                    }
+                    displayTable(arr);
+                }
+
+            }
+        </script>
+    </head>
+    <body onload="displayTable()">
+        <form >
+            product id: <input type="text" name="pid" id="pid"><br>
+            Name: <input type="text" name="pname" id="pname" pattern="[^0-9]+"><br>
+            Quantity: <input type="text" name="qty" id="qty"><br>
+            Price: <input type="text" name="pr" id="price"><br>
+            <button type="button" name="btn" id="add" value="add" onclick="addproduct()">add product</button>
+            <button type="button" name="btn" id="delete" value="delete" onclick="deleteproduct()">delete product</button>
+            <button type="button" name="btn" id="update" value="update">update product</button>
+            <button type="button" name="btn" id="display" value="display">display product by price</button>
+        </form>
+        <input type="text" name="search" id="search" onkeypress="finddata(event)">
+        <button type="button" name="btn" id="btn" value="search" onclick="finddata(event)">search</button>
+        <br>
+        <br>
+        <div id="mydiv">
+        </div>
+    </body>
+</html>

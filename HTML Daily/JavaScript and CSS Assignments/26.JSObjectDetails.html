@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        var flag1=false,flag2=false
+        var objArr=[]
+
+
+        function validateData(name,lucky){
+            if(/\d/.test(name)){
+                document.getElementById("nameErr").innerHTML="Only alphabets allowed"
+            }else if(name.length>10){
+                document.getElementById("nameErr").innerHTML="Length shouldn't be greater than 10"
+            }
+            else{
+                document.getElementById("nameErr").innerHTML=""
+                flag1=true
+            }
+
+            if(!lucky.length===4){
+                document.getElementById("luckyErr").innerHTML="Lucky no should be of four digits"
+            }else{
+                document.getElementById("luckyErr").innerHTML=""
+                flag2=true
+            }
+        }
+
+        function openDetails(objArr,foodArr){
+            var mydiv=document.getElementById("mydiv").innerHTML
+            mydiv="You entered:"
+            mydiv+="Name: "+objArr[0].name+"<br>"
+            mydiv+="Birth Date: "+objArr[0].dob+"<br>"
+            mydiv+="Email Address: "+objArr[0].email+"<br>"
+            for(var ob of objArr){
+                if(ob.checked){
+                    mydiv+="Gender: "+objArr[0].value+"<br>"
+                }
+            }
+            mydiv+="Lucky Number: "+lucky
+            for(var ob of foodArr){
+                if(ob.checked){
+                    mydiv+="Favourite Food: "+ob.value+" "
+                    // console.log(ob.value)
+                }
+                mydiv+="<br>"
+            }
+
+            // mydiv+="Gender: "+objArr[0].name.checked+"<br>"
+            // mydiv+="Name: "+objArr[0].name+"<br>"
+
+
+            // for(var ob of objArr){
+            //     if(ob.foodArr.checked){
+            //         // console.log(ob.foodArr.checked)
+            //     }
+            // }
+            // mydiv+=
+
+        }
+
+        function sendData(){
+            var name=document.getElementById("name").value
+            var dob=document.getElementById("dob").value
+            var email=document.getElementById("email").value
+            var genderArr=document.getElementsByName("gender")
+            var lucky=document.getElementById("lucky").value
+            var foodArr=document.getElementsByName("food")
+
+            // for(var ob of genderArr){
+            //     if(ob.checked){
+            //         var selectGender=
+            //     }
+            // }
+
+            validateData(name,lucky)
+
+            if(flag1&&flag2){
+                var ob={name,dob,email,genderArr,lucky,foodArr}
+                objArr.push(ob)
+
+                openDetails(objArr,foodArr)
+            }
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <form action="">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name" id="name" required><br></td>
+                <td id="nameErr"></td>
+            </tr>
+
+            <tr>
+                <td>Birth Date:</td>
+                <td><input type="date" name="dob" id="dob" required><br></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Email Address:</td>
+                <td><input type="email" name="email" id="email" required><br></td>
+                <td>(Use format name@company.com)</td>
+            </tr>
+
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" name="gender" id="male" required><label for="male">Male</label><br>
+                    <input type="radio" name="gender" id="female" required><label for="female">Female</label>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Lucky Number:</td>
+                <td><input type="text" name="lucky" id="lucky" required></td>
+                <td id="luckyErr">(A number between 1000 and 9999)</td>
+            </tr>
+
+            <tr>
+                <td>Favourite Foods:</td>
+                <td>
+                    <input type="checkbox" name="food" id="piz" required value="Pizza"><label for="piz">Pizza</label><br>
+                    <input type="checkbox" name="food" id="pas" required value="Pasta"><label for="pas">Pasta</label><br>
+                    <input type="checkbox" name="food" id="chi" required value="Chinese"><label for="chi">Chinese</label><br>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <!-- Never put id in button -->
+                    <button type="button" onclick="sendData()">Send Data</button>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+    <div id="mydiv"></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <script>
+        function showdata(){
+            //retreive data from text boxes
+            var s=document.getElementById("s").value;
+            var op=document.getElementById("op");
+            var val=op.options[op.selectedIndex].value;
+            switch(val){
+                case "upper":
+                    document.getElementById("mydiv").innerHTML=s.toUpperCase();
+                    break;
+            }
+        }
+    </script>
+    </head>
+    <body>
+        String : <input type="text" name="s" id="s">
+        Operation : <select id="op" name="op">
+            <option value="upper">uppercase</option>
+            <option value="lower">lowercase</option>
+            <option value="slice">slice</option>
+            <option value="search">search</option>
+            <option value="replace">replace</option>
+            <option value="match">match</option>
+            <option value="split">split</option>
+            
+        </select>
+        <button type="button" id="btn" name="btn" onclick="showdata()">show data</button>
+        <div id="mydiv">
+
+        </div>
+    </body>
+</html>

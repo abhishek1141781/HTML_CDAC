@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <script>
+            var arr=new Array(1,2,3,4,"deepa","ashu");
+            console.log(arr);
+            var arr1=[12,34,1,23,4,7];
+            console.log(arr1);
+            //find the position of  1st occurrence,
+            //returns -1 if not found
+            var pos=arr1.indexOf(34);
+            document.write("position : "+pos);  //1
+            var pos=arr1.indexOf(100);
+            document.write("position : "+pos);  //-1
+            arr1.push(234);
+            console.log(arr1)
+            arr1.pop();
+            console.log(arr1)
+            //add at the begining
+            arr1.unshift(100);
+            console.log(arr1)
+            //remove from the begining
+            arr1.shift(100);
+            console.log(arr1)
+        </script>
+    </body>
+</html>

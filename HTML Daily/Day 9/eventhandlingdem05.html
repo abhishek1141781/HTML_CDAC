@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="../jquery.js"></script>
+        <script>
+           $(document).ready(function(){
+               //assign focus event to all textboxes and email
+               $('input[type=text],#email').focus(function(){
+                    //changing style of the text box on which focus event has occured
+                    $(this).css("background-color","yellow");
+               })
+
+               $('input[type=text],#email').blur(function(){
+                //changing style of the text box on which blur event has occured
+                    $(this).css("background-color","white");
+               })
+           })
+          
+        </script>
+    </head>
+    <body>
+        <form>
+            name : <input type="text" name="nm" id="nm" ><br>
+            adress : <input type="text" name="addr" id="addr"  ><br>
+            mobile : <input type="text" name="mobile" id="mobile" ><br>
+            email : <input type="email" name="email" id="email" ><br>
+            
+        </form>
+    </body>
+</html>

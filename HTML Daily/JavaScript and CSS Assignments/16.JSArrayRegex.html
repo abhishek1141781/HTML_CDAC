@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+
+            var arrwww=["www.google.com","www.msn.com","www.amazon.com","in.answers.com","en.m.wikipedia.com","www.coderanch.com"]
+            let pattern=/www/
+            var count=0
+            
+            for(var ob of arrwww){
+
+                // if(pattern.test(arrwww)){ ==> this will give the output as 6 since it's checking inside the whole array
+
+                // this checks only in each element of the string
+                if(pattern.test(ob)){
+                    document.getElementById("mydiv").innerHTML+=ob+"<br>"
+                    count++
+                }
+            }
+
+            // document.getElementById("mydiv").innerHTML+=arrwww+"<br>"
+            document.getElementById("mydiv").innerHTML+=count
+            // alert(count)
+        })
+    </script>
+
+
+
+</head>
+<body>
+    
+
+
+
+    <div id="mydiv"></div>
+</body>
+</html>

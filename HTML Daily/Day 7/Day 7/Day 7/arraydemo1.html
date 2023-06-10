@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <script>
+            arr=[12,13,10,34];
+            arr1=[2,3,4,1,6]
+            arr2=[arr,arr1] //length :2
+            //spread operator will create a copy of values
+            arr3=[...arr,...arr1] 
+            document.write("arr: "+arr+"<br>")
+            document.write("arr1: "+arr1+"<br>")
+            arr.push(100);
+            document.write("arr2: "+arr2+ "   length : "+arr2.length+"<br>")
+            document.write("arr3: "+arr3+ "   length : "+arr3.length+"<br>")
+            arr=[1,2,3,12];
+           /* x=arr[0];
+            y=arr[1];
+            z=arr[2];*/
+            [x,y,z,p=23]=arr;
+
+            //the string using template operator
+            document.write(`x : ${x} y: ${y} z: ${z} p: ${p}`)
+            //array is big and we need only 1st 2 values
+            var [x,y,...p]=arr;
+            document.write(`x : ${x} y: ${y}`)
+            var [,,x1,...p]=arr;
+            document.write(`x1:${x1}`);
+            var [p=12,q=13,r=45]=[223];
+        </script>
+    </body>
+</html>

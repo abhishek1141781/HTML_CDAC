@@ -1,0 +1,64 @@
+<html><head>
+    <style>
+        #div1,#div2{
+            background-color: yellow;
+            border:2px solid red;
+            border-radius: 10px;
+            margin:10px;
+            width:40%;
+
+        }
+        #div2{
+            background-color: cyan;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#slideup').click(function(){
+                $('#div1').slideUp(1000,function(){
+                    console.log("slideUp completed")
+                })
+                $('#div2').slideDown(1000,function(){
+                    console.log("slideDown completed")
+                })
+            })
+            $('#slideDown').click(function(){
+                $('#div1').slideDown(1000,function(){
+                    console.log("slidedown completed")
+                })
+                $('#div2').slideUp(1000,function(){
+                    console.log("slideUp completed")
+                })
+            })
+            $('#slideToggle').click(function(){
+                $('#div1').slideToggle(1000,function(){
+                    console.log("slideToggle completed")
+                })
+                $('#div2').slideToggle(1000,function(){
+                    console.log("slideToggle completed")
+                })
+            })
+        })
+    </script>
+</head>
+    <body>
+        <button type="button" name="slideup" id="slideup" value="slideup">slideup</button>
+        <button type="button" name="slideDown" id="slideDown" value="slideDown">slideDown</button>
+        <button type="button" name="slideToggle" id="slideToggle" value="slideToggle">slideToggle</button>
+        <div id="div1">
+            This is div 1
+            <ul>
+                <li>mobile</li>
+                <li>books</li>
+            </ul>
+        </div>
+        <div id="div2">
+            This is div 2
+            <ol>
+                <li>mobile</li>
+                <li>books</li>
+            </ol>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<html><head>
+    <style>
+        #div1,#div2{
+            background-color: yellow;
+            border:2px solid red;
+            border-radius: 10px;
+            margin:10px;
+            width:40%;
+
+        }
+        #div2{
+            background-color: cyan;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#show').click(function(){
+                $('#div1').show(1000,function(){
+                    console.log("show completed")
+                })
+                $('#div2').hide(1000,function(){
+                    console.log("hide completed")
+                })
+            })
+            $('#hide').click(function(){
+                $('#div1').hide(1000,function(){
+                    console.log("hide completed")
+                })
+                $('#div2').show(1000,function(){
+                    console.log("show completed")
+                })
+            })
+            $('#toggle').click(function(){
+                $('#div1').toggle(1000,function(){
+                    console.log("show completed")
+                })
+                $('#div2').toggle(1000,function(){
+                    console.log("hide completed")
+                })
+            })
+        })
+    </script>
+</head>
+    <body>
+        <button type="button" name="show" id="show" value="show">show</button>
+        <button type="button" name="show" id="hide" value="hide">hide</button>
+        <button type="button" name="show" id="toggle" value="toggle">toggle</button>
+        <div id="div1">
+            This is div 1
+            <ul>
+                <li>mobile</li>
+                <li>books</li>
+            </ul>
+        </div>
+        <div id="div2">
+            This is div 2
+            <ol>
+                <li>mobile</li>
+                <li>books</li>
+            </ol>
+        </div>
+    </body>
+</html>

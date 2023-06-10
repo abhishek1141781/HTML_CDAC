@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function display(){
+            var rad=document.getElementById("radius").value
+            calculateDetails(rad)
+        }
+
+        function calculateDetails(rad){
+            var areaOfCircle=Math.PI*rad*rad
+            var circOfCircle=2*Math.PI*rad
+            document.getElementById("mydiv").innerHTML+="<br><br>"+"Area: "+areaOfCircle+"<br><br>"
+            document.getElementById("mydiv").innerHTML+="Circumference: "+circOfCircle
+            // writeToDiv()
+        }
+
+        // writeToDiv = function(calculateDetails){
+        // }
+    </script>
+</head>
+<body>
+    Enter Radius: <input type="text" name="radius" id="radius"><br><br>
+
+    <button id="circleButton" onclick="display()">Display Details</button>
+
+    <div id="mydiv"></div>
+</body>
+</html>

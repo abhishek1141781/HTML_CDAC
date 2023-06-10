@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+
+        // function runQuery()
+
+        // document.addEventListener("DOMContentLoaded",function(){
+
+            function runQuery(){
+                var string=document.getElementById("string").value
+                var subStr=document.getElementById("substr").value
+                var replaceStr=document.getElementById("replacestr").value
+
+                var output=document.getElementById("output")
+                
+                // create array of all radio values
+                // caught TypeError: Cannot read properties of null (reading 'value')
+                // var radioArr=document.getElementById("stringManip").value
+                
+                // why is this printing null even on selecting options
+                var radioArr=document.getElementsByName("stringManip")
+                // alert(radioArr)
+                // console.log(radioArr)
+                for(var ob of radioArr){
+                    if(ob.checked){
+                        var option=ob.id
+                        // alert("1 "+option)
+                    }
+                }   
+
+
+                switch (option) {
+                    case "search":
+                        var result=string.search(subStr)
+                        // alert("2 "+result)
+                        if(result===-1){
+                            output.value="No pattern found"
+                            // alert("3 "+result)
+                            // alert("3.5 "+output)
+                        }
+                        else{
+                            output.value="Pattern found at index position: "+result
+                            // alert("4 "+result)
+                            // alert("4.5 "+output)
+                        }
+                        break;
+
+                    case "upperc":
+                        var result=string.toUpperCase()
+                        output.value=result
+                        break;
+
+                    case "lowerc":
+                        var result=string.toLowerCase()
+                        output.value=result
+                        break;
+
+                    case "trimsp":
+                        var result=string.trim()
+                        output.value=result
+                        break;
+
+                    case "concat":
+                        var result=string.concat("---",subStr)
+                        output.value=result
+                        break;
+
+                    case "replace":
+                        var result=string.search(subStr)
+                            if(result===-1)
+                            output.value="No pattern found"
+
+                        var result=string.replace(subStr,replaceStr)
+                        output.value=result
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            
+        // })
+    </script>
+</head>
+<body>
+    <form action="">
+        Enter Main String: <input type="text" name="string" id="string"><br>
+        Enter Sub String: <input type="text" name="substr" id="substr"><br>
+        Replace with String: <input type="text" name="replacestr" id="replacestr"><br><br>
+
+        <input type="radio" name="stringManip" id="search">
+        <label for="search">Search substring in main String</label>
+
+        <input type="radio" name="stringManip" id="upperc">
+        <label for="upperc">To Upper Case</label>
+
+        <input type="radio" name="stringManip" id="lowerc">
+        <label for="lowerc">To Lower Case</label>
+
+        <input type="radio" name="stringManip" id="trimsp">
+        <label for="trimsp">Trim Spaces</label>
+
+        <input type="radio" name="stringManip" id="concat">
+        <label for="concat">concatenate</label>
+
+        <input type="radio" name="stringManip" id="replace">
+        <label for="replace">Replace</label><br><br>
+
+        <button id="submit" onclick="runQuery()" type="button">Submit Query</button><br><br>
+
+        OUTPUT BOX: <input type="text" name="output" id="output" style="background-color: green; color: white; width: 50%;" value="" >
+    </form>
+
+    <div id="mydiv"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- caught ReferenceError: runQuery is not defined -->
+
+<!-- The function runQuery() is defined inside the event listener for the DOMContentLoaded event, which means it is not defined in the global scope and cannot be accessed by the onclick attribute in the submit button. You can define the function in the global scope so that it can be accessed by the button.  -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+
+        document.addEventListener("DOMContentLoaded",function(){
+            function runQuery(){
+                var string=document.getElementById("string").value
+            }  
+        })
+    </script>
+</head>
+<body>
+    <input type="radio" name="stringManip" id="search">
+    <label for="search">Search substring in main String</label>
+
+    <button id="submit" onclick="runQuery()">Submit Query</button><br><br>
+
+    <div id="mydiv"></div>
+</body>
+</html> -->
+  
+
+
+
+
+
+
+<!-- i can write to the textbox with id outputbox like this
+var output=document.getElementById("outputbox")
+output.value="1"
+
+i can't write to the textbox with id outputbox like this
+var output=document.getElementById("outputbox").value
+output="1"
+
+why is it so -->
+
+<!-- The reason why the second code snippet is not working is because the output variable is assigned the value of the value property of the outputbox element. However, this variable is not a reference to the value property itself, but rather a copy of its current value. So when you assign a new value to the output variable, you are not actually changing the value of the value property of the outputbox element.
+
+In order to change the value of the outputbox element using the second code snippet, you would need to assign the new value directly to the value property of the element, like this:
+
+javascript
+Copy code
+var output=document.getElementById("outputbox")
+output.value="1"
+This way, you are accessing the value property of the outputbox element directly and assigning a new value to it. -->

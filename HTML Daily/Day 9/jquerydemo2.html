@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script src="../jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                /*var parr=document.getElementsByTagName('p');
+                for(var ob of parr){
+                    alert(ob.innerHTML)
+                }*/
+                $('p').each(function(index,element){
+                      alert($(element).html())
+                })
+
+            })
+        </script>
+    </head>
+    
+    <body>
+       <p>this is para 1</p>
+       <p>this is para 2</p>
+       <p>this si para 3</p>
+    </body>
+</html>

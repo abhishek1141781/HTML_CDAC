@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // var lnamt;
+        var flag1=false,flag2=false,flag3=false
+        function computeLoan(){
+            var lnamt=document.getElementById("lnamt").value.trim()
+            var roi=document.getElementById("roi").value.trim()
+            var yrs=document.getElementById("yrs").value.trim()
+
+            validateData(lnamt,roi,yrs)
+
+            if(flag1&&flag2&&flag3){
+                calculateLoan(lnamt,roi,yrs)
+                document.getElementById("mydiv").innerHTML=''
+            }else{
+                document.getElementById("mydiv").innerHTML='Please enter correct loan information'
+            }
+
+        }
+
+        function validateData(lnamt,roi,yrs){
+            // console.log(lnamt)
+            // alert(lnamt)
+            // caught ReferenceError: isNan is not defined
+            if(isNaN(lnamt)){
+                document.getElementById("lnamtErrNumOnly").innerHTML="Please enter in numeric format"
+            }else if(lnamt===""){
+                document.getElementById("lnamtErrNumOnly").innerHTML="Please enter loan amount"
+            }else if(lnamt>1500000){
+                document.getElementById("lnamtErrNumOnly").innerHTML="Loan amount should be below 15 Lakhs only"
+            }else{
+                document.getElementById("lnamtErrNumOnly").innerHTML=""
+                flag1=true
+            }
+
+            if(isNaN(roi)){
+                document.getElementById("roiErrNumOnly").innerHTML="Please enter in numeric format"
+            }else if(roi===""){
+                document.getElementById("roiErrNumOnly").innerHTML="Please enter the Annual Rate of interest"
+            }else{
+                document.getElementById("roiErrNumOnly").innerHTML=""
+                flag2=true
+            }
+
+            if(isNaN(yrs)){
+                document.getElementById("yrsErrNumOnly").innerHTML="Please enter in numeric format"
+            }else if(yrs===""){
+                document.getElementById("yrsErrNumOnly").innerHTML="Please enter the no of Repayment years"
+            }else if(yrs<7 || yrs>15){
+                document.getElementById("yrsErrNumOnly").innerHTML="Repayment years should be between 7 and 15 years"
+            }else{
+                document.getElementById("yrsErrNumOnly").innerHTML=""
+                flag3=true
+            }
+        }
+
+
+        function calculateLoan(lnamt,roi,yrs){
+            var P=lnamt
+            var R=roi/1200
+            var N=yrs*12
+
+            // [P x R x (1+R)^N]/[(1+R)^N-1], where:
+            // ‘P’ is the Principal Amount,
+            // ‘R’ is the Rate of Interest, and
+            // ‘N’ is the Loan Tenure (in months)
+            var EMI=((P*R*Math.pow((1+R),N))/(Math.pow((1+R),N)-1))
+            
+            // totalPayment=monthlyEMI x total no of months
+            var totalPayment=EMI*N
+
+            // totalInterest=totalPayment-principal loan amount
+            var totalInterest=totalPayment-P
+
+            document.getElementById("emi").value="₹ "+EMI.toLocaleString('en-US',{maximumFractionDigits:2})
+            document.getElementById("totalpayment").value="₹ "+totalPayment.toLocaleString('en-US',{maximumFractionDigits:2})
+            document.getElementById("borrowcost").value="₹ "+totalInterest.toLocaleString('en-US',{maximumFractionDigits:2})
+        }
+
+
+    </script>
+</head>
+
+
+<body>
+    <table>
+        <!-- <thead>Enter loan information</thead> -->
+        <th colspan="3">Enter loan information</th>
+        <!-- <h3>Enter loan information</h3> -->
+        <tr>
+            <td>1) Amount of the loan(any currency):</td><td><input type="text" name="lnamt" id="lnamt"></td><td id="lnamtErrNumOnly"></td>
+        </tr>
+        <tr>
+            <td>2) Annual percentage rate of interest:</td><td><input type="text" name="roi" id="roi"></td><td id="roiErrNumOnly"></td>
+        </tr>
+        <tr>
+            <td>3) Repayment period in years:</td><td><input type="text" name="yrs" id="yrs"></td><td id="yrsErrNumOnly"></td>
+        </tr>
+        <tr>
+            <th colspan="3">
+                <button type="button" onclick="computeLoan()">Calculate Loan</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th colspan="3">Payment Information</th>
+        </tr>
+
+        <tr>
+            <td>4) Your monthly payment will be:</td><td><input type="text" name="emi" id="emi" readonly></td><td></td>
+        </tr>
+
+        <tr>
+            <td>5) Your total payment will be:</td><td><input type="text" name="totalpayment" id="totalpayment" readonly></td><td></td>
+        </tr>
+
+        <tr>
+            <td>6) Your total interest payments will be:</td><td><input type="text" name="borrowcost" id="borrowcost" readonly></td><td></td>
+        </tr>
+    </table>
+
+    <br><br>
+    <div id="mydiv" style="background-color: darkcyan; color: whitesmoke;"></div>
+</body>
+</html>

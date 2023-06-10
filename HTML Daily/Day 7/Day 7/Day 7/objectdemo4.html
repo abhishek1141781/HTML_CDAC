@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <script>
+            class Person{
+                constructor(pid,pname,address){
+                    this.pid=pid;
+                    this.pname=pname;
+                    this.address=address;
+                }
+                display(){
+                    document.write(`pid: ${this.pid}| pname: ${this.pname}| address: ${this.address}| <br>`)
+                }
+            }
+            class Employee extends Person{
+                constructor(pid,pname,address,dept,desg){
+                    super(pid,pname,address);
+                    this.dept=dept;
+                    this.desg=desg;
+                }
+                display(){
+                    super.display();
+                    document.write(`department: ${this.dept}| desg :${this.desg}|`)
+                }
+            }
+            var e1=new Employee(12,"xxx","ssd","hr","mgr");
+            e1.display();
+            e1.mobile=4567;
+            document.write("<hr>");
+            
+            e2=new Employee(13,"dfsd","sfsdf","Admin","mgr")
+            e2.display();
+        </script>
+    </body>
+</html>
